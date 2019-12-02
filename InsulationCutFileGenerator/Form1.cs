@@ -13,7 +13,7 @@ namespace InsulationCutFileGenerator
 {
     public partial class Form1 : Form
     {
-        private List<EntryViewModel> dataEntries = new List<EntryViewModel>();
+        private List<DuctEntry> dataEntries = new List<DuctEntry>();
         public Form1()
         {
             InitializeComponent();
@@ -29,9 +29,9 @@ namespace InsulationCutFileGenerator
         {
             foreach (var entry in dataEntries)
             {
-                if (!entry.DataEntry.Validate())
+                if (!entry.Control.Validate())
                 {
-                    MessageBox.Show("Entry " + entry.Index + " is in valid:\r\n" + entry.DataEntry.GetFullDescription(), 
+                    MessageBox.Show("Entry " + entry.Index + " is in valid:\r\n" + entry.Data.GetFullDescription(),
                         "Invalid Entry", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -46,8 +46,9 @@ namespace InsulationCutFileGenerator
                 {
                     foreach (var item in dataEntries)
                     {
-                        var fileName = string.Format("{0}-{1}_{2}x{3}x{4}", time, item.Index, item.DataEntry.ShortEdge, item.DataEntry.LongEdge, item.DataEntry.Quantity);
-                        item.DataEntry.GenerateGCode(Path.Combine(folderPath, fileName) + ".txt");
+                        var fileName = string.Format("{0}-{1}_{2}x{3}x{4}", time, item.Index, item.Data.FemaleSize, item.Data.MaleSize, item.Data.Quantity);
+                        var filePath = Path.Combine(folderPath, fileName) + ".txt";
+                        item.Control.ExportCutFile(filePath);
                     }
                 }
                 catch (Exception ex)
@@ -60,7 +61,7 @@ namespace InsulationCutFileGenerator
                 if (!isError)
                     MessageBox.Show("CUT file(s) generated successfully.", "File Generation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -76,18 +77,15 @@ namespace InsulationCutFileGenerator
         private void AddEntry()
         {
 
+            var newDataEntry = new DuctEntry(1);
             if (dataEntries.Count > 0)
             {
-                var newDataEntry = dataEntries.Last().Clone(dataEntries.Count + 1);
-                newDataEntry.IsHeaderVisible = false;
-                newDataEntry.Dock = DockStyle.Fill;
-                dataEntries.Add(newDataEntry);
+                dataEntries.Last().Clone(dataEntries.Count + 1);
             }
-            else
-            {
-                dataEntries.Add(new EntryViewModel(1, 0, 0, 0, 1, ""));
-            }
-            flowLayoutPanel1.Controls.Add(dataEntries.Last());
+            newDataEntry.View.IsHeaderVisible = false;
+            newDataEntry.View.Dock = DockStyle.Fill;
+            dataEntries.Add(newDataEntry);
+            flowLayoutPanel1.Controls.Add(dataEntries.Last().View);
             UpadateEntryCount();
         }
 

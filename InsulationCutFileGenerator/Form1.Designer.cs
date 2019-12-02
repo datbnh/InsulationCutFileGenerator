@@ -43,9 +43,9 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -182,7 +182,7 @@
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(926, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Entry";
@@ -193,7 +193,7 @@
             this.tabPage2.Controls.Add(this.tableLayoutPanel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(926, 380);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Settings";
@@ -204,16 +204,16 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 230F));
             this.tableLayoutPanel2.Controls.Add(this.checkBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.checkBox2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.checkBox3, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button4, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.checkBox4, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(19, 96);
+            this.tableLayoutPanel2.Controls.Add(this.checkBox4, 0, 6);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(48, 55);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -231,47 +231,35 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(3, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(181, 27);
+            this.checkBox1.Size = new System.Drawing.Size(156, 25);
             this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Allow Multiple Entry";
+            this.checkBox1.Text = "Single Entry Mode";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 36);
+            this.checkBox2.Location = new System.Drawing.Point(3, 34);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(207, 27);
+            this.checkBox2.Size = new System.Drawing.Size(313, 25);
             this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Use Pre-defined Folder:";
+            this.checkBox2.Text = "Use Pre-defined Folder for Output File(s):";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.checkBox3, 3);
-            this.checkBox3.Location = new System.Drawing.Point(3, 104);
+            this.checkBox3.Location = new System.Drawing.Point(3, 100);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(590, 27);
+            this.checkBox3.Size = new System.Drawing.Size(542, 25);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Use Pre-defined File Name (single entry)/File Name Prefix (multiple entry):";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Checked = true;
-            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(3, 195);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(341, 27);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Force Long Side as Pittsburg Female Side";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 69);
+            this.textBox1.Location = new System.Drawing.Point(25, 65);
             this.textBox1.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(363, 29);
@@ -280,16 +268,29 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(394, 69);
+            this.button4.Location = new System.Drawing.Point(394, 65);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(106, 29);
             this.button4.TabIndex = 5;
             this.button4.Text = "Browse...";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = true;
+            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.tableLayoutPanel2.SetColumnSpan(this.checkBox4, 3);
+            this.checkBox4.Location = new System.Drawing.Point(3, 189);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(424, 25);
+            this.checkBox4.TabIndex = 3;
+            this.checkBox4.Text = "Force Long Side as Pittsburg Male Side (aka 6 mm Seam)";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(25, 160);
+            this.textBox2.Location = new System.Drawing.Point(25, 154);
             this.textBox2.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(363, 29);
@@ -301,7 +302,7 @@
             this.label2.AutoSize = true;
             this.tableLayoutPanel2.SetColumnSpan(this.label2, 3);
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 137);
+            this.label2.Location = new System.Drawing.Point(25, 131);
             this.label2.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(547, 17);

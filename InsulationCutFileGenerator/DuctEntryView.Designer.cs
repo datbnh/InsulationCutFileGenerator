@@ -1,6 +1,6 @@
 ﻿namespace InsulationCutFileGenerator
 {
-    partial class EntryViewModel
+    partial class DuctEntryView
     {
         /// <summary> 
         /// Required designer variable.

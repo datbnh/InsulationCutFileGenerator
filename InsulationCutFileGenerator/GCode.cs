@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsulationCutFileGenerator
 {
-    public static class GCodeGenerator
+    public static class GCode
     {
         public static string Init()
         {

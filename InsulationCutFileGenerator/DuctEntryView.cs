@@ -10,12 +10,20 @@ using System.Windows.Forms;
 
 namespace InsulationCutFileGenerator
 {
-    public partial class EntryViewModel : UserControl
+    public partial class DuctEntryView : UserControl
     {
-        internal EntryViewModel() : this(-1, 0, 0, 0, 0, "") {}
+        internal DuctEntryView() : this(-1, 0, 0, 0, 0, "") {}
         public int Index { private set; get; }
 
-        public EntryViewModel(int index, int insulationIdx, int sizeA, int sizeB, int qty, string itemNumber)
+        public DuctEntryView(int index, DuctEntryData data, DuctEntryControl control)
+        {
+            Index = index;
+            DataEntry = data;
+            Control = control;
+        }
+
+
+        private DuctEntryView(int index, int insulationIdx, int sizeA, int sizeB, int qty, string itemNumber)
         {
             InitializeComponent();
             InitInsulationComboBox();
@@ -27,14 +35,17 @@ namespace InsulationCutFileGenerator
             numericUpDownQty.Value = Math.Max(qty, numericUpDownQty.Minimum);
             textBox1.Text = itemNumber;
 
-            DataEntry = new DuctEntryData((Insulation)comboBox1.SelectedItem,
-                (int)numericUpDownSizeA.Value, (int)numericUpDownSizeB.Value, (int)numericUpDownQty.Value, textBox1.Text);
+            DataEntry.SetInsulation((Insulation)comboBox1.SelectedItem);
+            DataEntry.SetSize((int)numericUpDownSizeA.Value, (int)numericUpDownSizeB.Value);
+            DataEntry.SetQuatity((int)numericUpDownQty.Value);
+            DataEntry.SetItemNumber(textBox1.Text);
+
             ValidateEntry();
         }
 
-        public EntryViewModel Clone(int idx)
+        public DuctEntryView Clone(int idx)
         {
-            return new EntryViewModel(idx, comboBox1.SelectedIndex, DataEntry.ShortEdge, DataEntry.LongEdge, 0, "");
+            return new DuctEntryView(idx, comboBox1.SelectedIndex, DataEntry.FemaleSize, DataEntry.MaleSize, 0, "");
         }
 
         private void InitInsulationComboBox()
@@ -45,10 +56,10 @@ namespace InsulationCutFileGenerator
 
         private bool ValidateEntry()
         {
-            if (!DataEntry.Validate())
+            if (!Control.Validate())
             {
                 BackColor = Color.MistyRose;
-                labelDescription.Text = DataEntry.GetFullDescription();
+                labelDescription.Text = DataEntry.Description;
                 return false;
             }
 
@@ -57,11 +68,12 @@ namespace InsulationCutFileGenerator
             else
                 BackColor = Color.White;
 
-            labelDescription.Text = DataEntry.GetFullDescription();
+            labelDescription.Text = DataEntry.Description;
             return true;
         }
 
         internal DuctEntryData DataEntry { get; private set; }
+        internal DuctEntryControl Control { get; private set; }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
