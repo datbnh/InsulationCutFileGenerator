@@ -42,9 +42,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.labelIndex = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelDescription = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSizeA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSizeB)).BeginInit();
@@ -93,17 +93,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 2F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(871, 101);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 90);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 37);
+            this.comboBox1.Location = new System.Drawing.Point(150, 35);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(312, 45);
+            this.comboBox1.Size = new System.Drawing.Size(312, 40);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
@@ -111,10 +111,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Location = new System.Drawing.Point(465, 37);
+            this.label1.Location = new System.Drawing.Point(462, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 45);
+            this.label1.Size = new System.Drawing.Size(20, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = ":";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -123,10 +123,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Location = new System.Drawing.Point(703, 37);
+            this.label3.Location = new System.Drawing.Point(694, 35);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 45);
+            this.label3.Size = new System.Drawing.Size(59, 40);
             this.label3.TabIndex = 3;
             this.label3.Text = "mm";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -135,10 +135,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Location = new System.Drawing.Point(578, 37);
+            this.label2.Location = new System.Drawing.Point(572, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 45);
+            this.label2.Size = new System.Drawing.Size(32, 40);
             this.label2.TabIndex = 2;
             this.label2.Text = "×";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,10 +147,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Location = new System.Drawing.Point(766, 37);
+            this.label4.Location = new System.Drawing.Point(753, 35);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 45);
+            this.label4.Size = new System.Drawing.Size(32, 40);
             this.label4.TabIndex = 4;
             this.label4.Text = "×";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -162,7 +162,7 @@
             0,
             0,
             0});
-            this.numericUpDownSizeA.Location = new System.Drawing.Point(488, 37);
+            this.numericUpDownSizeA.Location = new System.Drawing.Point(482, 35);
             this.numericUpDownSizeA.Margin = new System.Windows.Forms.Padding(0);
             this.numericUpDownSizeA.Maximum = new decimal(new int[] {
             3000,
@@ -175,7 +175,7 @@
             0,
             0});
             this.numericUpDownSizeA.Name = "numericUpDownSizeA";
-            this.numericUpDownSizeA.Size = new System.Drawing.Size(90, 43);
+            this.numericUpDownSizeA.Size = new System.Drawing.Size(90, 40);
             this.numericUpDownSizeA.TabIndex = 5;
             this.numericUpDownSizeA.Value = new decimal(new int[] {
             100,
@@ -191,7 +191,7 @@
             0,
             0,
             0});
-            this.numericUpDownSizeB.Location = new System.Drawing.Point(613, 37);
+            this.numericUpDownSizeB.Location = new System.Drawing.Point(604, 35);
             this.numericUpDownSizeB.Margin = new System.Windows.Forms.Padding(0);
             this.numericUpDownSizeB.Maximum = new decimal(new int[] {
             3000,
@@ -204,7 +204,7 @@
             0,
             0});
             this.numericUpDownSizeB.Name = "numericUpDownSizeB";
-            this.numericUpDownSizeB.Size = new System.Drawing.Size(90, 43);
+            this.numericUpDownSizeB.Size = new System.Drawing.Size(90, 40);
             this.numericUpDownSizeB.TabIndex = 6;
             this.numericUpDownSizeB.Value = new decimal(new int[] {
             100,
@@ -215,7 +215,7 @@
             // 
             // numericUpDownQty
             // 
-            this.numericUpDownQty.Location = new System.Drawing.Point(801, 37);
+            this.numericUpDownQty.Location = new System.Drawing.Point(785, 35);
             this.numericUpDownQty.Margin = new System.Windows.Forms.Padding(0);
             this.numericUpDownQty.Maximum = new decimal(new int[] {
             50,
@@ -223,7 +223,7 @@
             0,
             0});
             this.numericUpDownQty.Name = "numericUpDownQty";
-            this.numericUpDownQty.Size = new System.Drawing.Size(70, 43);
+            this.numericUpDownQty.Size = new System.Drawing.Size(70, 40);
             this.numericUpDownQty.TabIndex = 7;
             this.numericUpDownQty.Value = new decimal(new int[] {
             1,
@@ -236,10 +236,10 @@
             // 
             this.label5.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label5, 2);
-            this.label5.Location = new System.Drawing.Point(153, 0);
+            this.label5.Location = new System.Drawing.Point(150, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 37);
+            this.label5.Size = new System.Drawing.Size(183, 35);
             this.label5.TabIndex = 8;
             this.label5.Text = "Insulation Type";
             // 
@@ -247,20 +247,20 @@
             // 
             this.label6.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label6, 4);
-            this.label6.Location = new System.Drawing.Point(488, 0);
+            this.label6.Location = new System.Drawing.Point(482, 0);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 37);
+            this.label6.Size = new System.Drawing.Size(117, 35);
             this.label6.TabIndex = 9;
             this.label6.Text = "Duct Size";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(801, 0);
+            this.label7.Location = new System.Drawing.Point(785, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 37);
+            this.label7.Size = new System.Drawing.Size(59, 35);
             this.label7.TabIndex = 10;
             this.label7.Text = "Qty.";
             // 
@@ -270,10 +270,10 @@
             this.labelIndex.Dock = System.Windows.Forms.DockStyle.Left;
             this.labelIndex.Font = new System.Drawing.Font("Segoe UI", 16.30189F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIndex.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelIndex.Location = new System.Drawing.Point(0, 37);
+            this.labelIndex.Location = new System.Drawing.Point(0, 35);
             this.labelIndex.Margin = new System.Windows.Forms.Padding(0);
             this.labelIndex.Name = "labelIndex";
-            this.labelIndex.Size = new System.Drawing.Size(28, 45);
+            this.labelIndex.Size = new System.Drawing.Size(25, 40);
             this.labelIndex.TabIndex = 11;
             this.labelIndex.Text = "1";
             this.labelIndex.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -285,11 +285,30 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 99);
+            this.panel1.Location = new System.Drawing.Point(0, 88);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(871, 2);
+            this.panel1.Size = new System.Drawing.Size(855, 2);
             this.panel1.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(25, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(111, 35);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Item No.";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(25, 35);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 40);
+            this.textBox1.TabIndex = 14;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // labelDescription
             // 
@@ -297,43 +316,24 @@
             this.tableLayoutPanel1.SetColumnSpan(this.labelDescription, 9);
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDescription.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.labelDescription.Location = new System.Drawing.Point(33, 82);
+            this.labelDescription.Location = new System.Drawing.Point(30, 75);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(107, 17);
+            this.labelDescription.Size = new System.Drawing.Size(95, 13);
             this.labelDescription.TabIndex = 13;
             this.labelDescription.Text = "Entry Description";
             // 
-            // label9
+            // DuctEntryView
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 37);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Item No.";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(28, 37);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 43);
-            this.textBox1.TabIndex = 14;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
-            // 
-            // EntryViewModel
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Name = "EntryViewModel";
-            this.Size = new System.Drawing.Size(871, 101);
+            this.Name = "DuctEntryView";
+            this.Size = new System.Drawing.Size(855, 90);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSizeA)).EndInit();
