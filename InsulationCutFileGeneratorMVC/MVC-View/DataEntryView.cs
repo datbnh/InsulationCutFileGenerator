@@ -11,6 +11,7 @@ namespace InsulationCutFileGeneratorMVC
         private DataEntryController controller;
 
         private bool isDataChanged = false;
+        private int lastSelectedRowIndex = -1;
 
         public DataEntryView()
         {
@@ -98,8 +99,13 @@ namespace InsulationCutFileGeneratorMVC
                 if (MessageBox.Show("Discard changes and continue?", "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                     == DialogResult.No)
                     return;
-            if (listDataEntries.SelectedItems.Count > 0)
-                controller.SelectedEntryChanged(listDataEntries.SelectedItems[0].Text);
+            if (listDataEntries.SelectedItems.Count <= 0)
+                return;
+            //Console.WriteLine(lastSelectedRowIndex + " > " + listDataEntries.SelectedIndices[0]);
+            if (listDataEntries.SelectedIndices[0] == lastSelectedRowIndex)
+                return;
+            controller.SelectedEntryChanged(listDataEntries.SelectedItems[0].Text);
+            lastSelectedRowIndex = listDataEntries.SelectedIndices[0];
         }
 
         #endregion Events raised back to controller
@@ -303,8 +309,7 @@ namespace InsulationCutFileGeneratorMVC
             IsDataChanged = true;
         }
 
+
         #endregion View implementation
-
-
     }
 }
