@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace InsulationCutFileGeneratorMVC
 {
@@ -100,6 +101,20 @@ namespace InsulationCutFileGeneratorMVC
                     UpdateViewFromCurrentEntry();
                     view.SetSelectedEntry(entry);
                     view.SetMode(DataEntryViewMode.View);
+                    break;
+                }
+            }
+        }
+
+        internal void RemoveCurrentEntry()
+        {
+            for (int i = 0; i < dataEntries.Count; i++)
+            {
+                var entry = (DataEntry)dataEntries[i];
+                if (entry.Id.Equals(view.GetSelectedEntryId())) 
+                {
+                    view.RemoveEntryFromListView(entry);
+                    dataEntries.RemoveAt(i);
                     break;
                 }
             }

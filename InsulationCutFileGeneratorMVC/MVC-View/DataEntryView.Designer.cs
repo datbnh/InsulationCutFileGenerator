@@ -48,7 +48,7 @@
             this.textBox7 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.listDataEntries = new System.Windows.Forms.ListView();
+            this.dataEntriesListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -366,7 +366,7 @@
             // 
             // listDataEntries
             // 
-            this.listDataEntries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.dataEntriesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -375,17 +375,17 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listDataEntries.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listDataEntries.FullRowSelect = true;
-            this.listDataEntries.GridLines = true;
-            this.listDataEntries.HideSelection = false;
-            this.listDataEntries.Location = new System.Drawing.Point(0, 0);
-            this.listDataEntries.Name = "listDataEntries";
-            this.listDataEntries.Size = new System.Drawing.Size(558, 114);
-            this.listDataEntries.TabIndex = 1;
-            this.listDataEntries.UseCompatibleStateImageBehavior = false;
-            this.listDataEntries.View = System.Windows.Forms.View.Details;
-            this.listDataEntries.SelectedIndexChanged += new System.EventHandler(this.listDataEntries_SelectedIndexChanged);
+            this.dataEntriesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataEntriesListView.FullRowSelect = true;
+            this.dataEntriesListView.GridLines = true;
+            this.dataEntriesListView.HideSelection = false;
+            this.dataEntriesListView.Location = new System.Drawing.Point(0, 0);
+            this.dataEntriesListView.Name = "listDataEntries";
+            this.dataEntriesListView.Size = new System.Drawing.Size(558, 114);
+            this.dataEntriesListView.TabIndex = 1;
+            this.dataEntriesListView.UseCompatibleStateImageBehavior = false;
+            this.dataEntriesListView.View = System.Windows.Forms.View.Details;
+            this.dataEntriesListView.SelectedIndexChanged += new System.EventHandler(this.listDataEntries_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -529,6 +529,7 @@
             this.buttonRemove.TabIndex = 4;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
+            this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
             // textBox4
             // 
@@ -606,7 +607,7 @@
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel5.SetColumnSpan(this.panel1, 2);
-            this.panel1.Controls.Add(this.listDataEntries);
+            this.panel1.Controls.Add(this.dataEntriesListView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 244);
             this.panel1.Name = "panel1";
@@ -658,7 +659,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListView listDataEntries;
+        private System.Windows.Forms.ListView dataEntriesListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

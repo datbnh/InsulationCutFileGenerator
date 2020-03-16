@@ -93,20 +93,27 @@ namespace InsulationCutFileGeneratorMVC
             controller.AddOrUpdateCurrentEntry();
         }
 
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            controller.RemoveCurrentEntry();
+        }
+
         private void listDataEntries_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((Mode == DataEntryViewMode.New || Mode == DataEntryViewMode.Edit) && IsDataChanged)
                 if (MessageBox.Show("Discard changes and continue?", "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                     == DialogResult.No)
                     return;
-            if (listDataEntries.SelectedItems.Count <= 0)
+            if (dataEntriesListView.SelectedItems.Count <= 0)
                 return;
             //Console.WriteLine(lastSelectedRowIndex + " > " + listDataEntries.SelectedIndices[0]);
-            if (listDataEntries.SelectedIndices[0] == lastSelectedRowIndex)
+            if (dataEntriesListView.SelectedIndices[0] == lastSelectedRowIndex)
                 return;
-            controller.SelectedEntryChanged(listDataEntries.SelectedItems[0].Text);
-            lastSelectedRowIndex = listDataEntries.SelectedIndices[0];
+            controller.SelectedEntryChanged(dataEntriesListView.SelectedItems[0].Text);
+            lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
         }
+
+
 
         #endregion Events raised back to controller
 
@@ -235,10 +242,26 @@ namespace InsulationCutFileGeneratorMVC
             }
         }
 
+       
+
+        internal void SetSelectedEntry(DataEntry currentEntry)
+        {
+            foreach (ListViewItem row in dataEntriesListView.Items)
+            {
+                row.Selected = row.Text.Equals(currentEntry.Id);
+            }
+        }
+        public string GetSelectedEntryId()
+        {
+            if (dataEntriesListView.SelectedItems.Count > 0)
+                return dataEntriesListView.SelectedItems[0].Text;
+            return string.Empty;
+        }
+
         internal void AddEntryToListView(DataEntry currentEntry)
         {
             ListViewItem item;
-            item = listDataEntries.Items.Add(currentEntry.Id);
+            item = dataEntriesListView.Items.Add(currentEntry.Id);
             item.SubItems.Add(currentEntry.JobName);
             item.SubItems.Add(currentEntry.DuctId);
             item.SubItems.Add(currentEntry.PittsburghSize.ToString());
@@ -248,18 +271,11 @@ namespace InsulationCutFileGeneratorMVC
             item.SubItems.Add(currentEntry.Quantity.ToString());
         }
 
-        internal void SetSelectedEntry(DataEntry currentEntry)
-        {
-            foreach (ListViewItem row in listDataEntries.Items)
-            {
-                row.Selected = row.Text.Equals(currentEntry.Id);
-            }
-        }
         internal void UpdateEntryInListVew(DataEntry currentEntry)
         {
             ListViewItem rowToUpdate = null;
 
-            foreach (ListViewItem row in listDataEntries.Items)
+            foreach (ListViewItem row in dataEntriesListView.Items)
             {
                 if (row.Text.Equals(currentEntry.Id))
                 {
@@ -279,6 +295,20 @@ namespace InsulationCutFileGeneratorMVC
                 rowToUpdate.SubItems[7].Text = currentEntry.Quantity.ToString();
             }
         }
+
+        internal void RemoveEntryFromListView(DataEntry entry)
+        {
+            for (int i = 0; i < dataEntriesListView.Items.Count; i++)
+            {
+                if (dataEntriesListView.Items[i].Text.Equals(entry.Id))
+                {
+                    dataEntriesListView.Items.RemoveAt(i);
+                    dataEntriesListView.Focus();
+                    break;
+                }
+            }
+        }
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             IsDataChanged = true;
@@ -308,8 +338,9 @@ namespace InsulationCutFileGeneratorMVC
         {
             IsDataChanged = true;
         }
-
-
+        
         #endregion View implementation
+
+
     }
 }
