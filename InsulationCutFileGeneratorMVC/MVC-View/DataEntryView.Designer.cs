@@ -36,18 +36,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxEntryId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox7 = new System.Windows.Forms.ComboBox();
+            this.textBoxJobName = new System.Windows.Forms.TextBox();
+            this.textBoxDuctId = new System.Windows.Forms.TextBox();
+            this.numericUpDownPittsburghSize = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownSixMmSize = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxInsulationType = new System.Windows.Forms.ComboBox();
+            this.comboBoxInsulationThickness = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownQuantity = new System.Windows.Forms.NumericUpDown();
             this.dataEntriesListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,9 +72,9 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSixMmSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -99,18 +99,18 @@
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxEntryId, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.label9, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown2, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxJobName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxDuctId, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDownPittsburghSize, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDownSixMmSize, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxInsulationType, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxInsulationThickness, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 7);
-            this.tableLayoutPanel1.Controls.Add(this.numericUpDown3, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.numericUpDownQuantity, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
@@ -202,13 +202,13 @@
             this.label7.Text = "Insulation Thickness";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // textBoxEntryId
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.textBoxEntryId.Location = new System.Drawing.Point(113, 3);
+            this.textBoxEntryId.Name = "textBoxEntryId";
+            this.textBoxEntryId.ReadOnly = true;
+            this.textBoxEntryId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEntryId.TabIndex = 10;
             // 
             // label8
             // 
@@ -243,98 +243,98 @@
             this.label10.Text = "mm";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox2
+            // textBoxJobName
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBoxJobName.Location = new System.Drawing.Point(113, 29);
+            this.textBoxJobName.Name = "textBoxJobName";
+            this.textBoxJobName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxJobName.TabIndex = 11;
+            this.textBoxJobName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // textBoxDuctId
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 55);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBoxDuctId.Location = new System.Drawing.Point(113, 55);
+            this.textBoxDuctId.Name = "textBoxDuctId";
+            this.textBoxDuctId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDuctId.TabIndex = 12;
+            this.textBoxDuctId.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // numericUpDown1
+            // numericUpDownPittsburghSize
             // 
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.numericUpDownPittsburghSize.Increment = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(113, 81);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownPittsburghSize.Location = new System.Drawing.Point(113, 81);
+            this.numericUpDownPittsburghSize.Maximum = new decimal(new int[] {
             9000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDownPittsburghSize.Minimum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 13;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDownPittsburghSize.Name = "numericUpDownPittsburghSize";
+            this.numericUpDownPittsburghSize.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownPittsburghSize.TabIndex = 13;
+            this.numericUpDownPittsburghSize.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.textBox4_ValueChanged);
+            this.numericUpDownPittsburghSize.ValueChanged += new System.EventHandler(this.textBox4_ValueChanged);
             // 
-            // numericUpDown2
+            // numericUpDownSixMmSize
             // 
-            this.numericUpDown2.Increment = new decimal(new int[] {
+            this.numericUpDownSixMmSize.Increment = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown2.Location = new System.Drawing.Point(113, 107);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numericUpDownSixMmSize.Location = new System.Drawing.Point(113, 107);
+            this.numericUpDownSixMmSize.Maximum = new decimal(new int[] {
             9000,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.numericUpDownSixMmSize.Minimum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown2.TabIndex = 14;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.numericUpDownSixMmSize.Name = "numericUpDownSixMmSize";
+            this.numericUpDownSixMmSize.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownSixMmSize.TabIndex = 14;
+            this.numericUpDownSixMmSize.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.textBox5_ValueChanged);
+            this.numericUpDownSixMmSize.ValueChanged += new System.EventHandler(this.textBox5_ValueChanged);
             // 
-            // textBox6
+            // comboBoxInsulationType
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.textBox6, 3);
-            this.textBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textBox6.FormattingEnabled = true;
-            this.textBox6.Location = new System.Drawing.Point(113, 133);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(129, 21);
-            this.textBox6.TabIndex = 15;
-            this.textBox6.SelectedIndexChanged += new System.EventHandler(this.textBox6_SelectedIndexChanged);
+            this.tableLayoutPanel1.SetColumnSpan(this.comboBoxInsulationType, 3);
+            this.comboBoxInsulationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxInsulationType.FormattingEnabled = true;
+            this.comboBoxInsulationType.Location = new System.Drawing.Point(113, 133);
+            this.comboBoxInsulationType.Name = "comboBoxInsulationType";
+            this.comboBoxInsulationType.Size = new System.Drawing.Size(129, 21);
+            this.comboBoxInsulationType.TabIndex = 15;
+            this.comboBoxInsulationType.SelectedIndexChanged += new System.EventHandler(this.textBox6_SelectedIndexChanged);
             // 
-            // textBox7
+            // comboBoxInsulationThickness
             // 
-            this.textBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.textBox7.FormattingEnabled = true;
-            this.textBox7.Location = new System.Drawing.Point(113, 160);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 21);
-            this.textBox7.TabIndex = 16;
-            this.textBox7.SelectedIndexChanged += new System.EventHandler(this.textBox7_SelectedIndexChanged);
+            this.comboBoxInsulationThickness.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxInsulationThickness.FormattingEnabled = true;
+            this.comboBoxInsulationThickness.Location = new System.Drawing.Point(113, 160);
+            this.comboBoxInsulationThickness.Name = "comboBoxInsulationThickness";
+            this.comboBoxInsulationThickness.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxInsulationThickness.TabIndex = 16;
+            this.comboBoxInsulationThickness.SelectedIndexChanged += new System.EventHandler(this.textBox7_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -347,24 +347,24 @@
             this.label11.Text = "Quantity";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numericUpDown3
+            // numericUpDownQuantity
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(113, 187);
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.numericUpDownQuantity.Location = new System.Drawing.Point(113, 187);
+            this.numericUpDownQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(45, 20);
-            this.numericUpDown3.TabIndex = 18;
-            this.numericUpDown3.Value = new decimal(new int[] {
+            this.numericUpDownQuantity.Name = "numericUpDownQuantity";
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(45, 20);
+            this.numericUpDownQuantity.TabIndex = 18;
+            this.numericUpDownQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // listDataEntries
+            // dataEntriesListView
             // 
             this.dataEntriesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -380,7 +380,7 @@
             this.dataEntriesListView.GridLines = true;
             this.dataEntriesListView.HideSelection = false;
             this.dataEntriesListView.Location = new System.Drawing.Point(0, 0);
-            this.dataEntriesListView.Name = "listDataEntries";
+            this.dataEntriesListView.Name = "dataEntriesListView";
             this.dataEntriesListView.Size = new System.Drawing.Size(558, 114);
             this.dataEntriesListView.TabIndex = 1;
             this.dataEntriesListView.UseCompatibleStateImageBehavior = false;
@@ -624,9 +624,9 @@
             this.Name = "DataEntryView";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSixMmSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -653,12 +653,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxEntryId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxJobName;
+        private System.Windows.Forms.TextBox textBoxDuctId;
         private System.Windows.Forms.ListView dataEntriesListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -677,12 +677,12 @@
         private System.Windows.Forms.Button buttonModify;
         private System.Windows.Forms.Button buttonDuplicate;
         private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.ComboBox textBox6;
-        private System.Windows.Forms.ComboBox textBox7;
+        private System.Windows.Forms.NumericUpDown numericUpDownPittsburghSize;
+        private System.Windows.Forms.NumericUpDown numericUpDownSixMmSize;
+        private System.Windows.Forms.ComboBox comboBoxInsulationType;
+        private System.Windows.Forms.ComboBox comboBoxInsulationThickness;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUpDownQuantity;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

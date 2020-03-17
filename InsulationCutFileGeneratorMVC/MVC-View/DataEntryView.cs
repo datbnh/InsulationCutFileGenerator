@@ -20,45 +20,45 @@ namespace InsulationCutFileGeneratorMVC
             InitializeInsulationThicknessComboBox();
         }
 
-        public string DuctId { get { return textBox3.Text; } set { textBox3.Text = value; } }
+        public string DuctId { get { return textBoxDuctId.Text; } set { textBoxDuctId.Text = value; } }
 
-        public string EntryId { get { return textBox1.Text; } set { textBox1.Text = value; } }
+        public string EntryId { get { return textBoxEntryId.Text; } set { textBoxEntryId.Text = value; } }
 
         public InsulationThickness InsulationThickness
         {
-            get => (InsulationThickness)(((ComboBoxItem)textBox7.SelectedItem).Value);
+            get => (InsulationThickness)(((ComboBoxItem)comboBoxInsulationThickness.SelectedItem).Value);
             set => SelectInsulationThickness(value);
         }
 
         public InsulationType InsulationType
         {
-            get => (InsulationType)(((ComboBoxItem)textBox6.SelectedItem).Value);
+            get => (InsulationType)(((ComboBoxItem)comboBoxInsulationType.SelectedItem).Value);
             set => SelectInsulationType(value);
         }
 
         public bool IsDataChanged { get { return isDataChanged; } set { isDataChanged = value; if (value) Text = "*"; else Text = ""; } }
 
-        public string JobName { get { return textBox2.Text; } set { textBox2.Text = value; } }
+        public string JobName { get { return textBoxJobName.Text; } set { textBoxJobName.Text = value; } }
 
         public int PittsburghSize
         {
-            get => (int)numericUpDown1.Value;
-            set => numericUpDown1.Value = value < numericUpDown1.Minimum ?
-                numericUpDown1.Minimum : value > numericUpDown1.Maximum ? numericUpDown1.Maximum : value;
+            get => (int)numericUpDownPittsburghSize.Value;
+            set => numericUpDownPittsburghSize.Value = value < numericUpDownPittsburghSize.Minimum ?
+                numericUpDownPittsburghSize.Minimum : value > numericUpDownPittsburghSize.Maximum ? numericUpDownPittsburghSize.Maximum : value;
         }
 
         public int SixMmSize
         {
-            get => (int)numericUpDown2.Value;
-            set => numericUpDown2.Value = value < numericUpDown2.Minimum ?
-                numericUpDown2.Minimum : value > numericUpDown2.Maximum ? numericUpDown2.Maximum : value;
+            get => (int)numericUpDownSixMmSize.Value;
+            set => numericUpDownSixMmSize.Value = value < numericUpDownSixMmSize.Minimum ?
+                numericUpDownSixMmSize.Minimum : value > numericUpDownSixMmSize.Maximum ? numericUpDownSixMmSize.Maximum : value;
         }
 
         public int Quantity
         {
-            get => (int)numericUpDown3.Value;
-            set => numericUpDown3.Value = value < numericUpDown3.Minimum ?
-                numericUpDown3.Minimum : value > numericUpDown3.Maximum ? numericUpDown3.Maximum : value;
+            get => (int)numericUpDownQuantity.Value;
+            set => numericUpDownQuantity.Value = value < numericUpDownQuantity.Minimum ?
+                numericUpDownQuantity.Minimum : value > numericUpDownQuantity.Maximum ? numericUpDownQuantity.Maximum : value;
         }
 
 
@@ -109,7 +109,7 @@ namespace InsulationCutFileGeneratorMVC
             //Console.WriteLine(lastSelectedRowIndex + " > " + listDataEntries.SelectedIndices[0]);
             if (dataEntriesListView.SelectedIndices[0] == lastSelectedRowIndex)
                 return;
-            controller.SelectedEntryChanged(dataEntriesListView.SelectedItems[0].Text);
+            controller.SelectEntry(dataEntriesListView.SelectedItems[0].Text);
             lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
         }
 
@@ -121,52 +121,52 @@ namespace InsulationCutFileGeneratorMVC
         private void InitializeInsulationThicknessComboBox()
         {
             var insulationThicknesseses = (InsulationThickness[])Enum.GetValues(typeof(InsulationThickness));
-            textBox7.Items.Clear();
+            comboBoxInsulationThickness.Items.Clear();
             for (int i = 0; i < insulationThicknesseses.Length; i++)
             {
 
                 var item = insulationThicknesseses[i];
-                textBox7.Items.Add(
+                comboBoxInsulationThickness.Items.Add(
                     new ComboBoxItem(i, (string.IsNullOrEmpty(item.GetId()) ? "" : "" + item.GetId() + " | ")
                     + item.GetDescription(), item));
             }
-            textBox7.SelectedIndex = 0;
+            comboBoxInsulationThickness.SelectedIndex = 0;
         }
 
         private void InitializeInsulationTypeComboBox()
         {
             var insulationTypes = (InsulationType[])Enum.GetValues(typeof(InsulationType));
-            textBox6.Items.Clear();
+            comboBoxInsulationType.Items.Clear();
             for (int i = 0; i < insulationTypes.Length; i++)
             {
                 var item = insulationTypes[i];
-                textBox6.Items.Add(
+                comboBoxInsulationType.Items.Add(
                     new ComboBoxItem(i, (string.IsNullOrEmpty(item.GetId()) ? "" : "" + item.GetId() + " | ")
                     + item.GetDescription(), item));
             }
-            textBox6.SelectedIndex = 0;
+            comboBoxInsulationType.SelectedIndex = 0;
         }
 
         private void SelectInsulationThickness(InsulationThickness value)
         {
-            for (int i = 0; i < textBox7.Items.Count; i++)
+            for (int i = 0; i < comboBoxInsulationThickness.Items.Count; i++)
             {
-                var item = textBox7.Items[i];
+                var item = comboBoxInsulationThickness.Items[i];
                 if (((InsulationThickness)(((ComboBoxItem)item).Value)).GetId().Equals(value.GetId()))
                 {
-                    textBox7.SelectedItem = item;
+                    comboBoxInsulationThickness.SelectedItem = item;
                     break;
                 }
             }
         }
         private void SelectInsulationType(InsulationType value)
         {
-            for (int i = 0; i < textBox6.Items.Count; i++)
+            for (int i = 0; i < comboBoxInsulationType.Items.Count; i++)
             {
-                var item = textBox6.Items[i];
+                var item = comboBoxInsulationType.Items[i];
                 if (((InsulationType)(((ComboBoxItem)item).Value)).GetId().Equals(value.GetId()))
                 {
-                    textBox6.SelectedItem = item;
+                    comboBoxInsulationType.SelectedItem = item;
                     break;
                 }
             }
@@ -184,13 +184,13 @@ namespace InsulationCutFileGeneratorMVC
             switch (this.Mode)
             {
                 case DataEntryViewMode.New:
-                    textBox1.ReadOnly = true;
-                    textBox2.ReadOnly = false;
-                    textBox3.ReadOnly = false;
-                    numericUpDown1.ReadOnly = false;
-                    numericUpDown2.ReadOnly = false;
-                    textBox6.Enabled = !false;
-                    textBox7.Enabled = !false;
+                    textBoxEntryId.ReadOnly = true;
+                    textBoxJobName.ReadOnly = false;
+                    textBoxDuctId.ReadOnly = false;
+                    numericUpDownPittsburghSize.ReadOnly = false;
+                    numericUpDownSixMmSize.ReadOnly = false;
+                    comboBoxInsulationType.Enabled = !false;
+                    comboBoxInsulationThickness.Enabled = !false;
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Add";
@@ -202,13 +202,13 @@ namespace InsulationCutFileGeneratorMVC
                     break;
 
                 case DataEntryViewMode.View:
-                    textBox1.ReadOnly = true;
-                    textBox2.ReadOnly = true;
-                    textBox3.ReadOnly = true;
-                    numericUpDown1.ReadOnly = true;
-                    numericUpDown2.ReadOnly = true;
-                    textBox6.Enabled = !true;
-                    textBox7.Enabled = !true;
+                    textBoxEntryId.ReadOnly = true;
+                    textBoxJobName.ReadOnly = true;
+                    textBoxDuctId.ReadOnly = true;
+                    numericUpDownPittsburghSize.ReadOnly = true;
+                    numericUpDownSixMmSize.ReadOnly = true;
+                    comboBoxInsulationType.Enabled = !true;
+                    comboBoxInsulationThickness.Enabled = !true;
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
                     buttonSave.Text = "Update";
@@ -216,17 +216,17 @@ namespace InsulationCutFileGeneratorMVC
                     buttonCancel.Enabled = false;
                     buttonClear.Enabled = false;
                     buttonRemove.Enabled = true;
-                    groupBox1.Text = "Displaying Entry [" + textBox1.Text + "]";
+                    groupBox1.Text = "Displaying Entry [" + textBoxEntryId.Text + "]";
                     break;
 
                 case DataEntryViewMode.Edit:
-                    textBox1.ReadOnly = true;
-                    textBox2.ReadOnly = false;
-                    textBox3.ReadOnly = false;
-                    numericUpDown1.ReadOnly = false;
-                    numericUpDown2.ReadOnly = false;
-                    textBox6.Enabled = !false;
-                    textBox7.Enabled = !false;
+                    textBoxEntryId.ReadOnly = true;
+                    textBoxJobName.ReadOnly = false;
+                    textBoxDuctId.ReadOnly = false;
+                    numericUpDownPittsburghSize.ReadOnly = false;
+                    numericUpDownSixMmSize.ReadOnly = false;
+                    comboBoxInsulationType.Enabled = !false;
+                    comboBoxInsulationThickness.Enabled = !false;
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Update";
@@ -234,7 +234,7 @@ namespace InsulationCutFileGeneratorMVC
                     buttonCancel.Enabled = true;
                     buttonClear.Enabled = true;
                     buttonRemove.Enabled = true;
-                    groupBox1.Text = "Modifying Entry [" + textBox1.Text + "]";
+                    groupBox1.Text = "Modifying Entry [" + textBoxEntryId.Text + "]";
                     break;
 
                 default:
@@ -242,7 +242,7 @@ namespace InsulationCutFileGeneratorMVC
             }
         }
 
-       
+
 
         internal void SetSelectedEntry(DataEntry currentEntry)
         {
@@ -298,15 +298,28 @@ namespace InsulationCutFileGeneratorMVC
 
         internal void RemoveEntryFromListView(DataEntry entry)
         {
-            for (int i = 0; i < dataEntriesListView.Items.Count; i++)
+            var numberOfEntries = dataEntriesListView.Items.Count;
+            var indexOfRemovedEntry = 0;
+            for (var i = 0; i < numberOfEntries; i++)
             {
                 if (dataEntriesListView.Items[i].Text.Equals(entry.Id))
                 {
                     dataEntriesListView.Items.RemoveAt(i);
                     dataEntriesListView.Focus();
+                    indexOfRemovedEntry = i;
+                    numberOfEntries--;
                     break;
                 }
             }
+
+            if (numberOfEntries == 0)
+                controller.CreateNewEntry();
+            else if (numberOfEntries == 1)
+                controller.SelectEntry(dataEntriesListView.Items[0].Text);
+            else if (indexOfRemovedEntry == numberOfEntries) // now, for sure, numberOfEntries > 1
+                controller.SelectEntry(dataEntriesListView.Items[numberOfEntries - 1].Text); // select the last entry
+            else
+                controller.SelectEntry(dataEntriesListView.Items[indexOfRemovedEntry].Text); // select the entry next to the removed entry
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -338,7 +351,7 @@ namespace InsulationCutFileGeneratorMVC
         {
             IsDataChanged = true;
         }
-        
+
         #endregion View implementation
 
 

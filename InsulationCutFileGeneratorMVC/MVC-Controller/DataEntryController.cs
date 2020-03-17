@@ -86,12 +86,7 @@ namespace InsulationCutFileGeneratorMVC
             CreateNewEntry(); // prompt to creat new entry
         }
 
-        internal void SelectedEntryChanged(string id)
-        {
-            SelectEntry(id);
-        }
-
-        private void SelectEntry(string id)
+        internal void SelectEntry(string id)
         {
             foreach (DataEntry entry in dataEntries)
             {
