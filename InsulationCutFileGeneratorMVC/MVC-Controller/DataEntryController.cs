@@ -52,8 +52,9 @@ namespace InsulationCutFileGeneratorMVC
             view.DuctId = "";
             view.PittsburghSize = 0;
             view.SixMmSize = 0;
-            view.InsulationType = InsulationType.Internal;
-            view.InsulationThickness = InsulationThickness._50;
+            view.InsulationType = InsulationType.Undefined;
+            view.InsulationThickness = InsulationThickness.Undefined;
+            view.Quantity = 1;
             view.IsDataChanged = true;
         }
 
