@@ -3,13 +3,13 @@ using System.Collections;
 
 namespace InsulationCutFileGeneratorMVC
 {
-    public class DataEntryController
+    public class DataEntryController : IDataEntryController
     {
         private DataEntry currentEntry;
         private readonly IList dataEntries;
         private string lastSelectedId = "1";
         private int nextId = 1;
-        private DataEntryView view;
+        private readonly DataEntryView view;
 
         public DataEntryController(DataEntryView view, IList dataEntries)
         {
@@ -18,7 +18,7 @@ namespace InsulationCutFileGeneratorMVC
             view.SetController(this);
         }
 
-        internal void AddOrUpdateCurrentEntry()
+        public void AddOrUpdateCurrentEntry()
         {
             UpdateViewToCurrentEntry();
             if (!dataEntries.Contains(currentEntry)) // update existing entry
@@ -32,20 +32,20 @@ namespace InsulationCutFileGeneratorMVC
                 view.UpdateEntryInListVew(currentEntry);
             }
             view.SetMode(DataEntryViewMode.View);
-            view.SetSelectedEntry(currentEntry);
+            view.SelectEntry(currentEntry);
         }
 
-        internal void BeginModifyingSelectedEntry()
+        public void BeginModifyingSelectedEntry()
         {
             view.SetMode(DataEntryViewMode.Edit);
         }
 
-        internal void CancelModifyingSelectedEntry()
+        public void CancelModifyingSelectedEntry()
         {
             SelectEntry(lastSelectedId);
         }
 
-        internal void ClearCurrentEntry()
+        public void ClearCurrentEntry()
         {
             view.EntryId = currentEntry.Id;
             view.JobName = "";
@@ -57,14 +57,14 @@ namespace InsulationCutFileGeneratorMVC
             view.IsDataChanged = true;
         }
 
-        internal void CreateNewEntry()
+        public void CreateNewEntry()
         {
             currentEntry = new DataEntry(nextId.ToString());
             UpdateViewFromCurrentEntry();
             view.SetMode(DataEntryViewMode.New);
         }
 
-        internal void DuplicateSelectedEntry()
+        public void DuplicateSelectedEntry()
         {
             lastSelectedId = currentEntry.Id; // save current id in case user cancels action
             currentEntry = new DataEntry(nextId.ToString())
@@ -81,12 +81,12 @@ namespace InsulationCutFileGeneratorMVC
             view.SetMode(DataEntryViewMode.New);
         }
 
-        internal void LoadView()
+        public void LoadView()
         {
             CreateNewEntry(); // prompt to creat new entry
         }
 
-        internal void SelectEntry(string id)
+        public void SelectEntry(string id)
         {
             foreach (DataEntry entry in dataEntries)
             {
@@ -94,19 +94,19 @@ namespace InsulationCutFileGeneratorMVC
                 {
                     currentEntry = entry;
                     UpdateViewFromCurrentEntry();
-                    view.SetSelectedEntry(entry);
+                    view.SelectEntry(entry);
                     view.SetMode(DataEntryViewMode.View);
                     break;
                 }
             }
         }
 
-        internal void RemoveCurrentEntry()
+        public void RemoveCurrentEntry()
         {
             for (int i = 0; i < dataEntries.Count; i++)
             {
                 var entry = (DataEntry)dataEntries[i];
-                if (entry.Id.Equals(view.GetSelectedEntryId())) 
+                if (entry.Id.Equals(view.GetSelectedEntryId()))
                 {
                     view.RemoveEntryFromListView(entry);
                     dataEntries.RemoveAt(i);

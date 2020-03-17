@@ -436,7 +436,7 @@
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(74, 23);
             this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "New";
+            this.buttonNew.Text = "&New";
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
@@ -507,7 +507,7 @@
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 2;
-            this.buttonClear.Text = "Clear";
+            this.buttonClear.Text = "&Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
@@ -527,7 +527,7 @@
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 4;
-            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.Text = "&Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
@@ -568,7 +568,7 @@
             this.buttonModify.Name = "buttonModify";
             this.buttonModify.Size = new System.Drawing.Size(75, 21);
             this.buttonModify.TabIndex = 1;
-            this.buttonModify.Text = "Modify";
+            this.buttonModify.Text = "&Modify";
             this.buttonModify.UseVisualStyleBackColor = true;
             this.buttonModify.Click += new System.EventHandler(this.buttonModify_Click);
             // 
@@ -578,7 +578,7 @@
             this.buttonDuplicate.Name = "buttonDuplicate";
             this.buttonDuplicate.Size = new System.Drawing.Size(75, 23);
             this.buttonDuplicate.TabIndex = 2;
-            this.buttonDuplicate.Text = "Duplicate";
+            this.buttonDuplicate.Text = "&Duplicate";
             this.buttonDuplicate.UseVisualStyleBackColor = true;
             this.buttonDuplicate.Click += new System.EventHandler(this.buttonDuplicate_Click);
             // 
@@ -616,8 +616,10 @@
             // 
             // DataEntryView
             // 
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(564, 361);
             this.Controls.Add(this.tableLayoutPanel5);
             this.MinimumSize = new System.Drawing.Size(580, 400);

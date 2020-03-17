@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC
 {
-    public partial class DataEntryView : Form
+    public partial class DataEntryView : Form, IDataEntryView
     {
         public DataEntryViewMode Mode;
 
@@ -159,6 +159,7 @@ namespace InsulationCutFileGeneratorMVC
                 }
             }
         }
+
         private void SelectInsulationType(InsulationType value)
         {
             for (int i = 0; i < comboBoxInsulationType.Items.Count; i++)
@@ -177,7 +178,6 @@ namespace InsulationCutFileGeneratorMVC
             this.controller = controller;
         }
 
-
         public void SetMode(DataEntryViewMode mode)
         {
             this.Mode = mode;
@@ -191,6 +191,7 @@ namespace InsulationCutFileGeneratorMVC
                     numericUpDownSixMmSize.ReadOnly = false;
                     comboBoxInsulationType.Enabled = !false;
                     comboBoxInsulationThickness.Enabled = !false;
+                    numericUpDownQuantity.ReadOnly = false;
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Add";
@@ -209,6 +210,7 @@ namespace InsulationCutFileGeneratorMVC
                     numericUpDownSixMmSize.ReadOnly = true;
                     comboBoxInsulationType.Enabled = !true;
                     comboBoxInsulationThickness.Enabled = !true;
+                    numericUpDownQuantity.ReadOnly = true;
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
                     buttonSave.Text = "Update";
@@ -227,6 +229,7 @@ namespace InsulationCutFileGeneratorMVC
                     numericUpDownSixMmSize.ReadOnly = false;
                     comboBoxInsulationType.Enabled = !false;
                     comboBoxInsulationThickness.Enabled = !false;
+                    numericUpDownQuantity.ReadOnly = false;
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Update";
@@ -238,19 +241,34 @@ namespace InsulationCutFileGeneratorMVC
                     break;
 
                 default:
+                    textBoxEntryId.ReadOnly = true;
+                    textBoxJobName.ReadOnly = true;
+                    textBoxDuctId.ReadOnly = true;
+                    numericUpDownPittsburghSize.ReadOnly = true;
+                    numericUpDownSixMmSize.ReadOnly = true;
+                    comboBoxInsulationType.Enabled = !true;
+                    comboBoxInsulationThickness.Enabled = !true;
+                    numericUpDownQuantity.ReadOnly = true;
+                    buttonModify.Enabled = true;
+                    buttonDuplicate.Enabled = true;
+                    buttonSave.Text = "Add/Update";
+                    buttonSave.Enabled = false;
+                    buttonCancel.Enabled = false;
+                    buttonClear.Enabled = false;
+                    buttonRemove.Enabled = false;
+                    groupBox1.Text = "ERROR: Undefined View Mode";
                     break;
             }
         }
 
-
-
-        internal void SetSelectedEntry(DataEntry currentEntry)
+        public void SelectEntry(DataEntry currentEntry)
         {
             foreach (ListViewItem row in dataEntriesListView.Items)
             {
                 row.Selected = row.Text.Equals(currentEntry.Id);
             }
         }
+
         public string GetSelectedEntryId()
         {
             if (dataEntriesListView.SelectedItems.Count > 0)
@@ -258,7 +276,7 @@ namespace InsulationCutFileGeneratorMVC
             return string.Empty;
         }
 
-        internal void AddEntryToListView(DataEntry currentEntry)
+        public void AddEntryToListView(DataEntry currentEntry)
         {
             ListViewItem item;
             item = dataEntriesListView.Items.Add(currentEntry.Id);
@@ -271,7 +289,7 @@ namespace InsulationCutFileGeneratorMVC
             item.SubItems.Add(currentEntry.Quantity.ToString());
         }
 
-        internal void UpdateEntryInListVew(DataEntry currentEntry)
+        public void UpdateEntryInListVew(DataEntry currentEntry)
         {
             ListViewItem rowToUpdate = null;
 
@@ -296,7 +314,7 @@ namespace InsulationCutFileGeneratorMVC
             }
         }
 
-        internal void RemoveEntryFromListView(DataEntry entry)
+        public void RemoveEntryFromListView(DataEntry entry)
         {
             var numberOfEntries = dataEntriesListView.Items.Count;
             var indexOfRemovedEntry = 0;

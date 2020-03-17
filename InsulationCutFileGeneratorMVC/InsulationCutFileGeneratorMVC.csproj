@@ -46,6 +46,7 @@
     <Compile Include="Helpers\ComboBoxExtensions.cs" />
     <Compile Include="Helpers\ComboBoxItem.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
+    <Compile Include="MVC-Controller\IDataEntryController.cs" />
     <Compile Include="MVC-Model\DataEntry.cs" />
     <Compile Include="MVC-Controller\DataEntryController.cs" />
     <Compile Include="MVC-Controller\DataEntryValidator.cs" />
@@ -58,9 +59,9 @@
       <DependentUpon>DataEntryView.cs</DependentUpon>
     </Compile>
     <Compile Include="MVC-View\DataEntryViewMode.cs" />
-    <Compile Include="MVC-View\IDataEntryView.cs" />
     <Compile Include="MVC-Model\InsulationThickness.cs" />
     <Compile Include="MVC-Model\InsulationType.cs" />
+    <Compile Include="MVC-View\IDataEntryView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MVC-View\DataEntryView.resx">
