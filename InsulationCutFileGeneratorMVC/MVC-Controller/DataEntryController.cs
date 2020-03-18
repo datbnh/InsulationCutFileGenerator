@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsulationCutFileGeneratorMVC.Core;
+using System;
 using System.Collections;
 
 namespace InsulationCutFileGeneratorMVC
@@ -11,11 +12,15 @@ namespace InsulationCutFileGeneratorMVC
         private int nextId = 1;
         private readonly DataEntryView view;
 
+        private Core.DataEntryValidatorFactory validatorFactory;
+        private Core.IDataEntryValidator validator;
+
         public DataEntryController(DataEntryView view, IList dataEntries)
         {
             this.view = view;
             this.dataEntries = dataEntries;
             view.SetController(this);
+            validatorFactory = new Core.DataEntryValidatorFactory();
         }
 
         public void AddOrUpdateCurrentEntry()
@@ -33,6 +38,7 @@ namespace InsulationCutFileGeneratorMVC
             }
             view.SetMode(DataEntryViewMode.View);
             view.SelectEntry(currentEntry);
+            view.ShowValidationInfo(currentEntry);
         }
 
         public void BeginModifyingSelectedEntry()
@@ -97,9 +103,16 @@ namespace InsulationCutFileGeneratorMVC
                     UpdateViewFromCurrentEntry();
                     view.SelectEntry(entry);
                     view.SetMode(DataEntryViewMode.View);
+                    view.ShowValidationInfo(entry);
                     break;
                 }
             }
+        }
+
+        public DataEntryValidationResult Validate(DataEntry entry)
+        {
+            validator = validatorFactory.GetInstance(entry.InsulationType);
+            return validator.Validate(entry);
         }
 
         public void RemoveCurrentEntry()

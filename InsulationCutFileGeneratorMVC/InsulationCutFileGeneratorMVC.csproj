@@ -43,15 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\DataEntryValidator\DataEntryValidatorUndefined.cs" />
+    <Compile Include="Core\Direction.cs" />
+    <Compile Include="Core\DataEntryValidator\DataEntryValidatorFactory.cs" />
+    <Compile Include="Core\DataEntryValidator\DataEntryValidatorExternal.cs" />
+    <Compile Include="Core\IActionGenerator.cs" />
+    <Compile Include="Core\DataEntryValidator\IDataEntryValidator.cs" />
+    <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternal.cs" />
+    <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternalDoubleSkin.cs" />
     <Compile Include="Helpers\ComboBoxExtensions.cs" />
     <Compile Include="Helpers\ComboBoxItem.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
+    <Compile Include="Core\DataEntryValidator\DataEntryValidationResult.cs" />
     <Compile Include="MVC-Controller\IDataEntryController.cs" />
     <Compile Include="MVC-Model\DataEntry.cs" />
     <Compile Include="MVC-Controller\DataEntryController.cs" />
-    <Compile Include="MVC-Controller\DataEntryValidator.cs" />
     <Compile Include="MVC-Model\InsulationThicknessInfoAttribute.cs" />
     <Compile Include="MVC-Model\InsulationTypeInfoAttribute.cs" />
+    <Compile Include="MVC-View\CodePreviewWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MVC-View\CodePreviewWindow.Designer.cs">
+      <DependentUpon>CodePreviewWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="MVC-View\DataEntryView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +78,9 @@
     <Compile Include="MVC-View\IDataEntryView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MVC-View\CodePreviewWindow.resx">
+      <DependentUpon>CodePreviewWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MVC-View\DataEntryView.resx">
       <DependentUpon>DataEntryView.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,5 +108,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

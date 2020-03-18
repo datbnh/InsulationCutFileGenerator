@@ -19,5 +19,7 @@
         public InsulationThickness InsulationThickness { get; set; }
         public InsulationType InsulationType { get; set; }
         public int Quantity { get; set; }
+
+        public const int DUCT_FULL_LENGTH = 1400;
     }
 }

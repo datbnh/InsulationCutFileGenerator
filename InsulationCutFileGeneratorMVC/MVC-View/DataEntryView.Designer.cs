@@ -65,12 +65,12 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonDuplicate = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSixMmSize)).BeginInit();
@@ -381,7 +381,7 @@
             this.dataEntriesListView.HideSelection = false;
             this.dataEntriesListView.Location = new System.Drawing.Point(0, 0);
             this.dataEntriesListView.Name = "dataEntriesListView";
-            this.dataEntriesListView.Size = new System.Drawing.Size(558, 114);
+            this.dataEntriesListView.Size = new System.Drawing.Size(602, 114);
             this.dataEntriesListView.TabIndex = 1;
             this.dataEntriesListView.UseCompatibleStateImageBehavior = false;
             this.dataEntriesListView.View = System.Windows.Forms.View.Details;
@@ -513,6 +513,7 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(84, 32);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
@@ -531,18 +532,6 @@
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
             // 
-            // textBox4
-            // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tableLayoutPanel2.SetColumnSpan(this.textBox4, 2);
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(3, 61);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(156, 146);
-            this.textBox4.TabIndex = 5;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.AutoSize = true;
@@ -559,7 +548,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(127, 235);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(171, 235);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // buttonModify
@@ -598,7 +587,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(564, 361);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(608, 361);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
             // panel1
@@ -611,8 +600,20 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 244);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 114);
+            this.panel1.Size = new System.Drawing.Size(602, 114);
             this.panel1.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox4, 2);
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox4.Location = new System.Drawing.Point(3, 61);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(156, 146);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.Text = "";
             // 
             // DataEntryView
             // 
@@ -620,7 +621,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(564, 361);
+            this.ClientSize = new System.Drawing.Size(608, 361);
             this.Controls.Add(this.tableLayoutPanel5);
             this.MinimumSize = new System.Drawing.Size(580, 400);
             this.Name = "DataEntryView";
@@ -634,7 +635,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -689,6 +689,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.RichTextBox textBox4;
     }
 }

@@ -1,5 +1,7 @@
-﻿using InsulationCutFileGeneratorMVC.Helpers;
+﻿using InsulationCutFileGeneratorMVC.Core;
+using InsulationCutFileGeneratorMVC.Helpers;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC
@@ -86,6 +88,28 @@ namespace InsulationCutFileGeneratorMVC
         private void buttonNew_Click(object sender, EventArgs e)
         {
             controller.CreateNewEntry();
+        }
+
+        internal void ShowValidationInfo(DataEntry entry)
+        {
+            var result = controller.Validate(entry);
+            if (result.IsValid)
+            {
+                //textBox4.ForeColor = Color.Black;
+                textBox4.Text = result.Description;
+            }
+            else
+            {
+                //textBox4.ForeColor = Color.DarkRed;
+                var startIdx = textBox4.TextLength;
+                textBox4.Text = "INVALID ENTRY: ";
+                textBox4.Select(startIdx, textBox4.TextLength);
+                textBox4.SelectionColor = Color.DarkRed;
+                startIdx = textBox4.TextLength;
+                textBox4.Text += result.Description;
+                textBox4.Select(startIdx, textBox4.TextLength);
+                textBox4.SelectionColor = textBox4.ForeColor;
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -200,6 +224,7 @@ namespace InsulationCutFileGeneratorMVC
                     buttonClear.Enabled = true;
                     buttonRemove.Enabled = false;
                     groupBox1.Text = "New Entry";
+                    textBox4.Text = "";
                     break;
 
                 case DataEntryViewMode.View:
@@ -238,6 +263,7 @@ namespace InsulationCutFileGeneratorMVC
                     buttonClear.Enabled = true;
                     buttonRemove.Enabled = true;
                     groupBox1.Text = "Modifying Entry [" + textBoxEntryId.Text + "]";
+                    textBox4.Text = "";
                     break;
 
                 default:
