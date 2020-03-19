@@ -2,12 +2,17 @@
 using InsulationCutFileGeneratorMVC.Helpers;
 using System;
 using System.Drawing;
+using System.Windows.Documents;
 using System.Windows.Forms;
+using InsulationCutFileGeneratorMVC.MVC_Controller;
+using InsulationCutFileGeneratorMVC.MVC_Model;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_View
 {
     public partial class DataEntryView : Form, IDataEntryView
     {
+        public CodePreviewWindow CodePreviewWindow;
+
         public DataEntryViewMode Mode;
 
         private DataEntryController controller;
@@ -100,15 +105,9 @@ namespace InsulationCutFileGeneratorMVC
             }
             else
             {
-                //textBox4.ForeColor = Color.DarkRed;
-                var startIdx = textBox4.TextLength;
-                textBox4.Text = "INVALID ENTRY: ";
-                textBox4.Select(startIdx, textBox4.TextLength);
-                textBox4.SelectionColor = Color.DarkRed;
-                startIdx = textBox4.TextLength;
-                textBox4.Text += result.Description;
-                textBox4.Select(startIdx, textBox4.TextLength);
-                textBox4.SelectionColor = textBox4.ForeColor;
+                textBox4.Clear();
+                textBox4.AppendText("Invalid entry: ", Color.DarkRed, FontStyle.Bold);
+                textBox4.AppendText(result.Description);
             }
         }
 
@@ -211,11 +210,9 @@ namespace InsulationCutFileGeneratorMVC
                     textBoxEntryId.ReadOnly = true;
                     textBoxJobName.ReadOnly = false;
                     textBoxDuctId.ReadOnly = false;
-                    numericUpDownPittsburghSize.ReadOnly = false;
-                    numericUpDownSixMmSize.ReadOnly = false;
                     comboBoxInsulationType.Enabled = !false;
                     comboBoxInsulationThickness.Enabled = !false;
-                    numericUpDownQuantity.ReadOnly = false;
+                    EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Add";
@@ -231,11 +228,9 @@ namespace InsulationCutFileGeneratorMVC
                     textBoxEntryId.ReadOnly = true;
                     textBoxJobName.ReadOnly = true;
                     textBoxDuctId.ReadOnly = true;
-                    numericUpDownPittsburghSize.ReadOnly = true;
-                    numericUpDownSixMmSize.ReadOnly = true;
                     comboBoxInsulationType.Enabled = !true;
                     comboBoxInsulationThickness.Enabled = !true;
-                    numericUpDownQuantity.ReadOnly = true;
+                    DisableNumericUpDowns();
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
                     buttonSave.Text = "Update";
@@ -250,11 +245,9 @@ namespace InsulationCutFileGeneratorMVC
                     textBoxEntryId.ReadOnly = true;
                     textBoxJobName.ReadOnly = false;
                     textBoxDuctId.ReadOnly = false;
-                    numericUpDownPittsburghSize.ReadOnly = false;
-                    numericUpDownSixMmSize.ReadOnly = false;
                     comboBoxInsulationType.Enabled = !false;
                     comboBoxInsulationThickness.Enabled = !false;
-                    numericUpDownQuantity.ReadOnly = false;
+                    EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
                     buttonSave.Text = "Update";
@@ -270,11 +263,9 @@ namespace InsulationCutFileGeneratorMVC
                     textBoxEntryId.ReadOnly = true;
                     textBoxJobName.ReadOnly = true;
                     textBoxDuctId.ReadOnly = true;
-                    numericUpDownPittsburghSize.ReadOnly = true;
-                    numericUpDownSixMmSize.ReadOnly = true;
                     comboBoxInsulationType.Enabled = !true;
                     comboBoxInsulationThickness.Enabled = !true;
-                    numericUpDownQuantity.ReadOnly = true;
+                    DisableNumericUpDowns();
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
                     buttonSave.Text = "Add/Update";
@@ -394,6 +385,26 @@ namespace InsulationCutFileGeneratorMVC
         private void textBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
             IsDataChanged = true;
+        }
+
+        private void DisableNumericUpDowns()
+        {
+            numericUpDownPittsburghSize.ReadOnly = true;
+            numericUpDownSixMmSize.ReadOnly = true;
+            numericUpDownQuantity.ReadOnly = true;
+            numericUpDownPittsburghSize.Increment = 0;
+            numericUpDownSixMmSize.Increment = 0;
+            numericUpDownQuantity.Increment = 0;
+        }
+
+        private void EnableNumericUpDowns()
+        {
+            numericUpDownPittsburghSize.ReadOnly = false;
+            numericUpDownSixMmSize.ReadOnly = false;
+            numericUpDownQuantity.ReadOnly = false;
+            numericUpDownPittsburghSize.Increment = 50;
+            numericUpDownSixMmSize.Increment = 50;
+            numericUpDownQuantity.Increment = 1;
         }
 
         #endregion View implementation

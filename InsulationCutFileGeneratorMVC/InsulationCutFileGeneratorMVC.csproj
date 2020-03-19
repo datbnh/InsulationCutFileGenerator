@@ -35,12 +35,15 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorUndefined.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="Helpers\ComboBoxItem.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidationResult.cs" />
+    <Compile Include="Helpers\RichTextBoxExtensions.cs" />
     <Compile Include="MVC-Controller\IDataEntryController.cs" />
     <Compile Include="MVC-Model\DataEntry.cs" />
     <Compile Include="MVC-Controller\DataEntryController.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using InsulationCutFileGeneratorMVC.MVC_Model;
 
 namespace InsulationCutFileGeneratorMVC.Core
 {
@@ -21,8 +22,8 @@ namespace InsulationCutFileGeneratorMVC.Core
                     "Specified duct size is too small with selected insulation thickness.");
             return new DataEntryValidationResult(
                 true,
-                string.Format("Pittsburgh sheet:{5} {4} mm × {0} mm.{5}" +
-                    "Six-mm sheet:{5} {4} mm × {1} mm.{5}" +
+                string.Format("Pittsburgh sheet (ea.):{5} {4} mm × {0} mm.{5}" +
+                    "Six-mm sheet (ea.):{5} {4} mm × {1} mm.{5}" +
                     "Quantity:{5} {2}.{5}Total insulation required:{5} {3:0.0} m.",
                     insulationPittsburghSize,
                     insulationSixMmSize,
@@ -32,20 +33,20 @@ namespace InsulationCutFileGeneratorMVC.Core
                     Environment.NewLine));
         }
         
-        private static int GetTotalInsulationLength(DataEntry entry)
+        public static int GetTotalInsulationLength(DataEntry entry)
         {
             return (GetInsulationPittsburgSize(entry) + GetInsulationSixMmSize(entry))
                 * 2 * entry.Quantity;
         }
 
-        private static int GetInsulationPittsburgSize(DataEntry entry)
+        public static int GetInsulationPittsburgSize(DataEntry entry)
         {
             return entry.PittsburghSize
                 - 2 * entry.InsulationThickness.GetActualThickness()
                 + entry.InsulationThickness.GetInternalPittsburghAdjustment();
         }
 
-        private static int GetInsulationSixMmSize(DataEntry entry)
+        public static int GetInsulationSixMmSize(DataEntry entry)
         {
             return entry.SixMmSize
                 - 2 * entry.InsulationThickness.GetActualThickness()

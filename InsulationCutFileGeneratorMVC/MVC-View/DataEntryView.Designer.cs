@@ -1,4 +1,4 @@
-﻿namespace InsulationCutFileGeneratorMVC
+﻿namespace InsulationCutFileGeneratorMVC.MVC_View
 {
     partial class DataEntryView
     {
@@ -122,16 +122,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(245, 210);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(278, 232);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(62, 0);
+            this.label1.Location = new System.Drawing.Point(69, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 26);
+            this.label1.Size = new System.Drawing.Size(48, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Entry ID";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -140,9 +140,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(52, 26);
+            this.label2.Location = new System.Drawing.Point(57, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 26);
+            this.label2.Size = new System.Drawing.Size(60, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Job Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,9 +151,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(63, 52);
+            this.label3.Location = new System.Drawing.Point(71, 58);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 26);
+            this.label3.Size = new System.Drawing.Size(46, 29);
             this.label3.TabIndex = 2;
             this.label3.Text = "Duct ID";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,9 +162,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(30, 78);
+            this.label4.Location = new System.Drawing.Point(32, 87);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 26);
+            this.label4.Size = new System.Drawing.Size(85, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Pittsburgh Size";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -173,9 +173,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label5.Location = new System.Drawing.Point(44, 104);
+            this.label5.Location = new System.Drawing.Point(46, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 26);
+            this.label5.Size = new System.Drawing.Size(71, 29);
             this.label5.TabIndex = 4;
             this.label5.Text = "Six-mm Size";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -184,9 +184,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label6.Location = new System.Drawing.Point(28, 130);
+            this.label6.Location = new System.Drawing.Point(29, 145);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 27);
+            this.label6.Size = new System.Drawing.Size(88, 29);
             this.label6.TabIndex = 5;
             this.label6.Text = "Insulation Type";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -195,28 +195,28 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label7.Location = new System.Drawing.Point(3, 157);
+            this.label7.Location = new System.Drawing.Point(3, 174);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 27);
+            this.label7.Size = new System.Drawing.Size(114, 29);
             this.label7.TabIndex = 6;
             this.label7.Text = "Insulation Thickness";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // textBoxEntryId
             // 
-            this.textBoxEntryId.Location = new System.Drawing.Point(113, 3);
+            this.textBoxEntryId.Location = new System.Drawing.Point(123, 3);
             this.textBoxEntryId.Name = "textBoxEntryId";
             this.textBoxEntryId.ReadOnly = true;
-            this.textBoxEntryId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEntryId.Size = new System.Drawing.Size(116, 23);
             this.textBoxEntryId.TabIndex = 10;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Location = new System.Drawing.Point(219, 78);
+            this.label8.Location = new System.Drawing.Point(246, 87);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(23, 26);
+            this.label8.Size = new System.Drawing.Size(29, 29);
             this.label8.TabIndex = 7;
             this.label8.Text = "mm";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -225,9 +225,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Location = new System.Drawing.Point(219, 104);
+            this.label9.Location = new System.Drawing.Point(246, 116);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 26);
+            this.label9.Size = new System.Drawing.Size(29, 29);
             this.label9.TabIndex = 8;
             this.label9.Text = "mm";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,26 +236,26 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Location = new System.Drawing.Point(219, 157);
+            this.label10.Location = new System.Drawing.Point(246, 174);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 27);
+            this.label10.Size = new System.Drawing.Size(29, 29);
             this.label10.TabIndex = 9;
             this.label10.Text = "mm";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxJobName
             // 
-            this.textBoxJobName.Location = new System.Drawing.Point(113, 29);
+            this.textBoxJobName.Location = new System.Drawing.Point(123, 32);
             this.textBoxJobName.Name = "textBoxJobName";
-            this.textBoxJobName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxJobName.Size = new System.Drawing.Size(116, 23);
             this.textBoxJobName.TabIndex = 11;
             this.textBoxJobName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBoxDuctId
             // 
-            this.textBoxDuctId.Location = new System.Drawing.Point(113, 55);
+            this.textBoxDuctId.Location = new System.Drawing.Point(123, 61);
             this.textBoxDuctId.Name = "textBoxDuctId";
-            this.textBoxDuctId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDuctId.Size = new System.Drawing.Size(116, 23);
             this.textBoxDuctId.TabIndex = 12;
             this.textBoxDuctId.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -266,7 +266,7 @@
             0,
             0,
             0});
-            this.numericUpDownPittsburghSize.Location = new System.Drawing.Point(113, 81);
+            this.numericUpDownPittsburghSize.Location = new System.Drawing.Point(123, 90);
             this.numericUpDownPittsburghSize.Maximum = new decimal(new int[] {
             9000,
             0,
@@ -278,7 +278,7 @@
             0,
             0});
             this.numericUpDownPittsburghSize.Name = "numericUpDownPittsburghSize";
-            this.numericUpDownPittsburghSize.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownPittsburghSize.Size = new System.Drawing.Size(117, 23);
             this.numericUpDownPittsburghSize.TabIndex = 13;
             this.numericUpDownPittsburghSize.Value = new decimal(new int[] {
             50,
@@ -294,7 +294,7 @@
             0,
             0,
             0});
-            this.numericUpDownSixMmSize.Location = new System.Drawing.Point(113, 107);
+            this.numericUpDownSixMmSize.Location = new System.Drawing.Point(123, 119);
             this.numericUpDownSixMmSize.Maximum = new decimal(new int[] {
             9000,
             0,
@@ -306,7 +306,7 @@
             0,
             0});
             this.numericUpDownSixMmSize.Name = "numericUpDownSixMmSize";
-            this.numericUpDownSixMmSize.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownSixMmSize.Size = new System.Drawing.Size(117, 23);
             this.numericUpDownSixMmSize.TabIndex = 14;
             this.numericUpDownSixMmSize.Value = new decimal(new int[] {
             50,
@@ -320,9 +320,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.comboBoxInsulationType, 3);
             this.comboBoxInsulationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInsulationType.FormattingEnabled = true;
-            this.comboBoxInsulationType.Location = new System.Drawing.Point(113, 133);
+            this.comboBoxInsulationType.Location = new System.Drawing.Point(123, 148);
             this.comboBoxInsulationType.Name = "comboBoxInsulationType";
-            this.comboBoxInsulationType.Size = new System.Drawing.Size(129, 21);
+            this.comboBoxInsulationType.Size = new System.Drawing.Size(150, 23);
             this.comboBoxInsulationType.TabIndex = 15;
             this.comboBoxInsulationType.SelectedIndexChanged += new System.EventHandler(this.textBox6_SelectedIndexChanged);
             // 
@@ -330,9 +330,9 @@
             // 
             this.comboBoxInsulationThickness.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxInsulationThickness.FormattingEnabled = true;
-            this.comboBoxInsulationThickness.Location = new System.Drawing.Point(113, 160);
+            this.comboBoxInsulationThickness.Location = new System.Drawing.Point(123, 177);
             this.comboBoxInsulationThickness.Name = "comboBoxInsulationThickness";
-            this.comboBoxInsulationThickness.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxInsulationThickness.Size = new System.Drawing.Size(116, 23);
             this.comboBoxInsulationThickness.TabIndex = 16;
             this.comboBoxInsulationThickness.SelectedIndexChanged += new System.EventHandler(this.textBox7_SelectedIndexChanged);
             // 
@@ -340,23 +340,23 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label11.Location = new System.Drawing.Point(61, 184);
+            this.label11.Location = new System.Drawing.Point(64, 203);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 26);
+            this.label11.Size = new System.Drawing.Size(53, 29);
             this.label11.TabIndex = 17;
             this.label11.Text = "Quantity";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // numericUpDownQuantity
             // 
-            this.numericUpDownQuantity.Location = new System.Drawing.Point(113, 187);
+            this.numericUpDownQuantity.Location = new System.Drawing.Point(123, 206);
             this.numericUpDownQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.numericUpDownQuantity.Name = "numericUpDownQuantity";
-            this.numericUpDownQuantity.Size = new System.Drawing.Size(45, 20);
+            this.numericUpDownQuantity.Size = new System.Drawing.Size(52, 23);
             this.numericUpDownQuantity.TabIndex = 18;
             this.numericUpDownQuantity.Value = new decimal(new int[] {
             1,
@@ -381,7 +381,7 @@
             this.dataEntriesListView.HideSelection = false;
             this.dataEntriesListView.Location = new System.Drawing.Point(0, 0);
             this.dataEntriesListView.Name = "dataEntriesListView";
-            this.dataEntriesListView.Size = new System.Drawing.Size(602, 114);
+            this.dataEntriesListView.Size = new System.Drawing.Size(703, 145);
             this.dataEntriesListView.TabIndex = 1;
             this.dataEntriesListView.UseCompatibleStateImageBehavior = false;
             this.dataEntriesListView.View = System.Windows.Forms.View.Details;
@@ -390,51 +390,50 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Entry ID";
-            this.columnHeader1.Width = 50;
+            this.columnHeader1.Width = 65;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Job Name";
-            this.columnHeader2.Width = 61;
+            this.columnHeader2.Width = 80;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Duct ID";
-            this.columnHeader3.Width = 51;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Pittsburgh Size";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader4.Width = 84;
+            this.columnHeader4.Width = 100;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Six-mm Size";
-            this.columnHeader5.Width = 69;
+            this.columnHeader5.Width = 90;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Insulation Type";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader6.Width = 85;
+            this.columnHeader6.Width = 105;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Insulation Thickness";
-            this.columnHeader7.Width = 109;
+            this.columnHeader7.Width = 125;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Qty.";
-            this.columnHeader8.Width = 36;
+            this.columnHeader8.Width = 45;
             // 
             // buttonNew
             // 
             this.buttonNew.AutoSize = true;
             this.buttonNew.Location = new System.Drawing.Point(3, 3);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(74, 23);
+            this.buttonNew.Size = new System.Drawing.Size(86, 27);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "&New";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -447,7 +446,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel4);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 235);
+            this.groupBox1.Size = new System.Drawing.Size(482, 260);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Entry";
@@ -462,11 +461,11 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(419, 216);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(476, 238);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -482,20 +481,20 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonRemove, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBox4, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(254, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(287, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(162, 210);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 232);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // buttonSave
             // 
             this.buttonSave.Location = new System.Drawing.Point(3, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(87, 27);
             this.buttonSave.TabIndex = 1;
             this.buttonSave.Text = "Add/Update";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -503,9 +502,9 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(84, 3);
+            this.buttonClear.Location = new System.Drawing.Point(96, 3);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.Size = new System.Drawing.Size(87, 27);
             this.buttonClear.TabIndex = 2;
             this.buttonClear.Text = "&Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -514,9 +513,9 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(84, 32);
+            this.buttonCancel.Location = new System.Drawing.Point(96, 36);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(87, 27);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -524,9 +523,9 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(3, 32);
+            this.buttonRemove.Location = new System.Drawing.Point(3, 36);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemove.Size = new System.Drawing.Size(87, 27);
             this.buttonRemove.TabIndex = 4;
             this.buttonRemove.Text = "&Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
@@ -542,20 +541,20 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonModify, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.buttonDuplicate, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(434, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(491, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(171, 235);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(215, 260);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // buttonModify
             // 
-            this.buttonModify.Location = new System.Drawing.Point(3, 32);
+            this.buttonModify.Location = new System.Drawing.Point(3, 36);
             this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(75, 21);
+            this.buttonModify.Size = new System.Drawing.Size(87, 24);
             this.buttonModify.TabIndex = 1;
             this.buttonModify.Text = "&Modify";
             this.buttonModify.UseVisualStyleBackColor = true;
@@ -563,9 +562,9 @@
             // 
             // buttonDuplicate
             // 
-            this.buttonDuplicate.Location = new System.Drawing.Point(3, 59);
+            this.buttonDuplicate.Location = new System.Drawing.Point(3, 66);
             this.buttonDuplicate.Name = "buttonDuplicate";
-            this.buttonDuplicate.Size = new System.Drawing.Size(75, 23);
+            this.buttonDuplicate.Size = new System.Drawing.Size(87, 27);
             this.buttonDuplicate.TabIndex = 2;
             this.buttonDuplicate.Text = "&Duplicate";
             this.buttonDuplicate.UseVisualStyleBackColor = true;
@@ -586,8 +585,8 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(608, 361);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(709, 417);
             this.tableLayoutPanel5.TabIndex = 5;
             // 
             // panel1
@@ -598,9 +597,9 @@
             this.tableLayoutPanel5.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.dataEntriesListView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 244);
+            this.panel1.Location = new System.Drawing.Point(3, 269);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(602, 114);
+            this.panel1.Size = new System.Drawing.Size(703, 145);
             this.panel1.TabIndex = 5;
             // 
             // textBox4
@@ -608,22 +607,23 @@
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tableLayoutPanel2.SetColumnSpan(this.textBox4, 2);
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(3, 61);
+            this.textBox4.Location = new System.Drawing.Point(3, 69);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(156, 146);
+            this.textBox4.Size = new System.Drawing.Size(180, 160);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "";
             // 
             // DataEntryView
             // 
             this.AcceptButton = this.buttonSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(608, 361);
+            this.ClientSize = new System.Drawing.Size(709, 417);
             this.Controls.Add(this.tableLayoutPanel5);
-            this.MinimumSize = new System.Drawing.Size(580, 400);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(674, 456);
             this.Name = "DataEntryView";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

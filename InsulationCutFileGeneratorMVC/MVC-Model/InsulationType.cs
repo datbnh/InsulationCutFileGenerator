@@ -1,7 +1,7 @@
 ﻿using InsulationCutFileGeneratorMVC.Helpers;
 using System.ComponentModel;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_Model
 {
     public enum InsulationType
     {

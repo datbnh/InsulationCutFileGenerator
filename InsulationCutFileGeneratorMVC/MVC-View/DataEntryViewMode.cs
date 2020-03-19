@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_View
 {
     public enum DataEntryViewMode
     {

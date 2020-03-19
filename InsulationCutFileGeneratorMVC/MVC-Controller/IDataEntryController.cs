@@ -1,4 +1,4 @@
-﻿namespace InsulationCutFileGeneratorMVC
+﻿namespace InsulationCutFileGeneratorMVC.MVC_Controller
 {
     public interface IDataEntryController
     {

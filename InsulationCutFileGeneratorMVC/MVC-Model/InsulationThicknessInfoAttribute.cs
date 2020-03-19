@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_Model
 {
     internal class InsulationThicknessInfoAttribute : Attribute
     {

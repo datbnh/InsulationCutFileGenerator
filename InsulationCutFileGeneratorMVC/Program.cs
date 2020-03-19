@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using InsulationCutFileGeneratorMVC.MVC_Model;
+using InsulationCutFileGeneratorMVC.MVC_View;
+using InsulationCutFileGeneratorMVC.MVC_Controller;
 
 namespace InsulationCutFileGeneratorMVC
 {

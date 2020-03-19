@@ -1,4 +1,4 @@
-﻿
+﻿using InsulationCutFileGeneratorMVC.MVC_Model;
 
 namespace InsulationCutFileGeneratorMVC.Core
 {

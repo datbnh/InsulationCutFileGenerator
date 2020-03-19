@@ -1,8 +1,10 @@
 ﻿using InsulationCutFileGeneratorMVC.Core;
+using InsulationCutFileGeneratorMVC.MVC_View;
+using InsulationCutFileGeneratorMVC.MVC_Model;
 using System;
 using System.Collections;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_Controller
 {
     public class DataEntryController : IDataEntryController
     {

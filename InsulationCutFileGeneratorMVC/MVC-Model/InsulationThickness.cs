@@ -1,6 +1,6 @@
 ﻿using InsulationCutFileGeneratorMVC.Helpers;
 
-namespace InsulationCutFileGeneratorMVC
+namespace InsulationCutFileGeneratorMVC.MVC_Model
 {
     public enum InsulationThickness
     {
