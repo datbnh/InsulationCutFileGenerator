@@ -211,7 +211,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
-                    buttonSave.Text = "Add";
+                    buttonSave.Text = "➕" + Environment.NewLine + "Add";
                     buttonSave.Enabled = true;
                     buttonCancel.Enabled = true;
                     buttonClear.Enabled = true;
@@ -229,7 +229,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     DisableNumericUpDowns();
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
-                    buttonSave.Text = "Update";
+                    buttonSave.Text = "✔" + Environment.NewLine + "Update";
                     buttonSave.Enabled = false;
                     buttonCancel.Enabled = false;
                     buttonClear.Enabled = false;
@@ -246,7 +246,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
-                    buttonSave.Text = "Update";
+                    buttonSave.Text = "✔" + Environment.NewLine + "Update";
                     buttonSave.Enabled = true;
                     buttonCancel.Enabled = true;
                     buttonClear.Enabled = true;

@@ -65,12 +65,14 @@
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonModify = new System.Windows.Forms.Button();
             this.buttonDuplicate = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.RichTextBox();
+            this.buttonPreview = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSixMmSize)).BeginInit();
@@ -431,9 +433,10 @@
             // buttonNew
             // 
             this.buttonNew.AutoSize = true;
+            this.buttonNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonNew.Location = new System.Drawing.Point(3, 3);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(86, 27);
+            this.buttonNew.Size = new System.Drawing.Size(85, 27);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "&New";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -446,7 +449,7 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel4);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(482, 260);
+            this.groupBox1.Size = new System.Drawing.Size(502, 260);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Entry";
@@ -465,7 +468,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(476, 238);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(496, 238);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -473,8 +476,8 @@
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.buttonSave, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonClear, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonCancel, 1, 1);
@@ -487,24 +490,29 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 232);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(206, 232);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // buttonSave
             // 
+            this.buttonSave.AutoSize = true;
+            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSave.ForeColor = System.Drawing.Color.Navy;
             this.buttonSave.Location = new System.Drawing.Point(3, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(87, 27);
+            this.buttonSave.Size = new System.Drawing.Size(97, 40);
             this.buttonSave.TabIndex = 1;
-            this.buttonSave.Text = "Add/Update";
+            this.buttonSave.Text = "➕\r\nAdd/Update";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(96, 3);
+            this.buttonClear.AutoSize = true;
+            this.buttonClear.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonClear.Location = new System.Drawing.Point(106, 3);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(87, 27);
+            this.buttonClear.Size = new System.Drawing.Size(97, 40);
             this.buttonClear.TabIndex = 2;
             this.buttonClear.Text = "&Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -512,10 +520,12 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.AutoSize = true;
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Location = new System.Drawing.Point(96, 36);
+            this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCancel.Location = new System.Drawing.Point(106, 49);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(87, 27);
+            this.buttonCancel.Size = new System.Drawing.Size(97, 40);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -523,38 +533,61 @@
             // 
             // buttonRemove
             // 
-            this.buttonRemove.Location = new System.Drawing.Point(3, 36);
+            this.buttonRemove.AutoSize = true;
+            this.buttonRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonRemove.ForeColor = System.Drawing.Color.Maroon;
+            this.buttonRemove.Location = new System.Drawing.Point(3, 49);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(87, 27);
+            this.buttonRemove.Size = new System.Drawing.Size(97, 40);
             this.buttonRemove.TabIndex = 4;
-            this.buttonRemove.Text = "&Remove";
+            this.buttonRemove.Text = "➖\r\n&Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
             this.buttonRemove.Click += new System.EventHandler(this.buttonRemove_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tableLayoutPanel2.SetColumnSpan(this.textBox4, 2);
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox4.Location = new System.Drawing.Point(3, 95);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(200, 134);
+            this.textBox4.TabIndex = 5;
+            this.textBox4.Text = "";
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.AutoSize = true;
             this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.buttonNew, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonModify, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.buttonDuplicate, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.buttonPreview, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.button2, 0, 5);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(491, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(511, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(215, 260);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(195, 260);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // buttonModify
             // 
+            this.buttonModify.AutoSize = true;
+            this.buttonModify.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonModify.Location = new System.Drawing.Point(3, 36);
             this.buttonModify.Name = "buttonModify";
-            this.buttonModify.Size = new System.Drawing.Size(87, 24);
+            this.buttonModify.Size = new System.Drawing.Size(85, 27);
             this.buttonModify.TabIndex = 1;
             this.buttonModify.Text = "&Modify";
             this.buttonModify.UseVisualStyleBackColor = true;
@@ -562,9 +595,11 @@
             // 
             // buttonDuplicate
             // 
-            this.buttonDuplicate.Location = new System.Drawing.Point(3, 66);
+            this.buttonDuplicate.AutoSize = true;
+            this.buttonDuplicate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDuplicate.Location = new System.Drawing.Point(3, 69);
             this.buttonDuplicate.Name = "buttonDuplicate";
-            this.buttonDuplicate.Size = new System.Drawing.Size(87, 27);
+            this.buttonDuplicate.Size = new System.Drawing.Size(85, 27);
             this.buttonDuplicate.TabIndex = 2;
             this.buttonDuplicate.Text = "&Duplicate";
             this.buttonDuplicate.UseVisualStyleBackColor = true;
@@ -602,23 +637,39 @@
             this.panel1.Size = new System.Drawing.Size(703, 145);
             this.panel1.TabIndex = 5;
             // 
-            // textBox4
+            // buttonPreview
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tableLayoutPanel2.SetColumnSpan(this.textBox4, 2);
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(3, 69);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(180, 160);
-            this.textBox4.TabIndex = 5;
-            this.textBox4.Text = "";
+            this.buttonPreview.AutoSize = true;
+            this.buttonPreview.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonPreview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonPreview.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPreview.Location = new System.Drawing.Point(3, 171);
+            this.buttonPreview.Name = "buttonPreview";
+            this.buttonPreview.Size = new System.Drawing.Size(85, 40);
+            this.buttonPreview.TabIndex = 3;
+            this.buttonPreview.Text = "    Preview\r\nG-Code...";
+            this.buttonPreview.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.AutoSize = true;
+            this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Symbol", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkGreen;
+            this.button2.Location = new System.Drawing.Point(3, 217);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(85, 40);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "   &Export\r\nCut File...";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // DataEntryView
             // 
             this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(709, 417);
             this.Controls.Add(this.tableLayoutPanel5);
@@ -635,6 +686,7 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -690,5 +742,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RichTextBox textBox4;
+        private System.Windows.Forms.Button buttonPreview;
+        private System.Windows.Forms.Button button2;
     }
 }
