@@ -1,7 +1,6 @@
 ﻿using InsulationCutFileGeneratorMVC.Core;
-using InsulationCutFileGeneratorMVC.MVC_View;
 using InsulationCutFileGeneratorMVC.MVC_Model;
-using System;
+using InsulationCutFileGeneratorMVC.MVC_View;
 using System.Collections;
 
 namespace InsulationCutFileGeneratorMVC.MVC_Controller

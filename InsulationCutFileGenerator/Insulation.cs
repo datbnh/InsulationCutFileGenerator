@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InsulationCutFileGenerator
+﻿namespace InsulationCutFileGenerator
 {
     public class Insulation
     {
@@ -33,11 +26,14 @@ namespace InsulationCutFileGenerator
         /// Insulation thickness.
         /// </summary>
         public int Thickness { get; private set; }
+
         /// <summary>
         /// Two-sided overlapping for internal insulation OR overall overlapping for lagging insulation.
         /// </summary>
         public int ShortEdgeTotalOverlapping { get; private set; }
+
         public string Id { get; private set; }
+
         /// <summary>
         /// Two-sided separation for internal insulation.
         /// </summary>

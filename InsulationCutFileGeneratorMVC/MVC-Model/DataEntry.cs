@@ -9,7 +9,9 @@
             InsulationType = InsulationType.Undefined;
         }
 
-        private DataEntry() { }
+        private DataEntry()
+        {
+        }
 
         public string Id { get; set; }
         public string JobName { get; set; }

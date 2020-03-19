@@ -1,11 +1,9 @@
-﻿using InsulationCutFileGeneratorMVC.Core;
-using InsulationCutFileGeneratorMVC.Helpers;
-using System;
-using System.Drawing;
-using System.Windows.Documents;
-using System.Windows.Forms;
+﻿using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Controller;
 using InsulationCutFileGeneratorMVC.MVC_Model;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC.MVC_View
 {
@@ -68,8 +66,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                 numericUpDownQuantity.Minimum : value > numericUpDownQuantity.Maximum ? numericUpDownQuantity.Maximum : value;
         }
 
-
         #region Events raised back to controller
+
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             controller.CancelModifyingSelectedEntry();
@@ -136,18 +134,16 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
             lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
         }
 
-
-
         #endregion Events raised back to controller
 
         #region View implementation
+
         private void InitializeInsulationThicknessComboBox()
         {
             var insulationThicknesseses = (InsulationThickness[])Enum.GetValues(typeof(InsulationThickness));
             comboBoxInsulationThickness.Items.Clear();
             for (int i = 0; i < insulationThicknesseses.Length; i++)
             {
-
                 var item = insulationThicknesseses[i];
                 comboBoxInsulationThickness.Items.Add(
                     new ComboBoxItem(i, (string.IsNullOrEmpty(item.GetId()) ? "" : "" + item.GetId() + " | ")
@@ -376,11 +372,11 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         {
             IsDataChanged = true;
         }
+
         private void textBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             IsDataChanged = true;
         }
-
 
         private void textBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -408,7 +404,5 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         }
 
         #endregion View implementation
-
-
     }
 }

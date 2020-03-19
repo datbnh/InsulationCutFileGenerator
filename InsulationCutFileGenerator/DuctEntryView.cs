@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGenerator
 {
     public partial class DuctEntryView : UserControl
     {
-        internal DuctEntryView() : this(-1, 0, 0, 0, 0, "") {}
+        internal DuctEntryView() : this(-1, 0, 0, 0, 0, "")
+        {
+        }
+
         public int Index { private set; get; }
 
         public DuctEntryView(int index, DuctEntryData data, DuctEntryControl control)
@@ -21,7 +18,6 @@ namespace InsulationCutFileGenerator
             DataEntry = data;
             Control = control;
         }
-
 
         private DuctEntryView(int index, int insulationIdx, int sizeA, int sizeB, int qty, string itemNumber)
         {

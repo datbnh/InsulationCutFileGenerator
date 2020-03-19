@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGenerator
@@ -14,6 +9,7 @@ namespace InsulationCutFileGenerator
     public partial class Form1 : Form
     {
         private List<DuctEntry> dataEntries = new List<DuctEntry>();
+
         public Form1()
         {
             InitializeComponent();
@@ -61,7 +57,6 @@ namespace InsulationCutFileGenerator
                 if (!isError)
                     MessageBox.Show("CUT file(s) generated successfully.", "File Generation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -76,7 +71,6 @@ namespace InsulationCutFileGenerator
 
         private void AddEntry()
         {
-
             var newDataEntry = new DuctEntry(1);
             if (dataEntries.Count > 0)
             {

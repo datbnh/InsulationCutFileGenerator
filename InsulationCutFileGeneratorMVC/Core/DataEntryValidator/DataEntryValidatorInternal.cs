@@ -1,5 +1,5 @@
-﻿using System;
-using InsulationCutFileGeneratorMVC.MVC_Model;
+﻿using InsulationCutFileGeneratorMVC.MVC_Model;
+using System;
 
 namespace InsulationCutFileGeneratorMVC.Core
 {
@@ -28,11 +28,11 @@ namespace InsulationCutFileGeneratorMVC.Core
                     insulationPittsburghSize,
                     insulationSixMmSize,
                     entry.Quantity,
-                    GetTotalInsulationLength(entry)/1000f,
+                    GetTotalInsulationLength(entry) / 1000f,
                     DataEntry.DUCT_FULL_LENGTH,
                     Environment.NewLine));
         }
-        
+
         public static int GetTotalInsulationLength(DataEntry entry)
         {
             return (GetInsulationPittsburgSize(entry) + GetInsulationSixMmSize(entry))

@@ -13,13 +13,13 @@ namespace InsulationCutFileGeneratorMVC.MVC_Model
         public int DoubleSkinPittsburgAdjustment { get; private set; }
         public int DoubleSkinSixMmAdjustment { get; private set; }
 
-        public InsulationThicknessInfoAttribute(string id, 
-            string description, 
-            int actualThickness, 
+        public InsulationThicknessInfoAttribute(string id,
+            string description,
+            int actualThickness,
             int internalPittsburghAdjustment,
-            int internalSixMmAdjustment, 
-            int externalTotalAdjustment, 
-            int doubleSkinPittsburgAdjustment, 
+            int internalSixMmAdjustment,
+            int externalTotalAdjustment,
+            int doubleSkinPittsburgAdjustment,
             int doubleSkinSixMmAdjustment)
         {
             Id = id;

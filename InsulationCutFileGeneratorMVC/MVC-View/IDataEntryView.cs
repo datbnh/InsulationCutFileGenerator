@@ -1,5 +1,5 @@
-﻿using InsulationCutFileGeneratorMVC.MVC_Model;
-using InsulationCutFileGeneratorMVC.MVC_Controller;
+﻿using InsulationCutFileGeneratorMVC.MVC_Controller;
+using InsulationCutFileGeneratorMVC.MVC_Model;
 
 namespace InsulationCutFileGeneratorMVC.MVC_View
 {
@@ -16,11 +16,17 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         int SixMmSize { get; set; }
 
         void AddEntryToListView(DataEntry currentEntry);
+
         string GetSelectedEntryId();
+
         void RemoveEntryFromListView(DataEntry entry);
+
         void SelectEntry(DataEntry currentEntry);
+
         void SetController(DataEntryController controller);
+
         void SetMode(DataEntryViewMode mode);
+
         void UpdateEntryInListVew(DataEntry currentEntry);
     }
 }

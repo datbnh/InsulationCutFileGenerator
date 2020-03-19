@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InsulationCutFileGeneratorMVC.MVC_View
+﻿namespace InsulationCutFileGeneratorMVC.MVC_View
 {
     public enum DataEntryViewMode
     {

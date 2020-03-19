@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGenerator
 {
@@ -17,7 +13,7 @@ namespace InsulationCutFileGenerator
         public DuctEntry(int index)
         {
             Index = index;
-            Data = new DuctEntryData(BuiltInInsulationTypes.Internal25, 0,0,0,"");
+            Data = new DuctEntryData(BuiltInInsulationTypes.Internal25, 0, 0, 0, "");
             Control = new DuctEntryControl(Data);
             View = new DuctEntryView(0, Data, Control);
         }

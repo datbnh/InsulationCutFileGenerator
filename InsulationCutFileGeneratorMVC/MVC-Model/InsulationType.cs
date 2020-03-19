@@ -1,5 +1,4 @@
 ﻿using InsulationCutFileGeneratorMVC.Helpers;
-using System.ComponentModel;
 
 namespace InsulationCutFileGeneratorMVC.MVC_Model
 {
@@ -7,10 +6,13 @@ namespace InsulationCutFileGeneratorMVC.MVC_Model
     {
         [InsulationTypeInfo("", "Undefined")]
         Undefined,
+
         [InsulationTypeInfo("A", "Internal")]
         Internal,
+
         [InsulationTypeInfo("L", "Lagging")]
         External,
+
         [InsulationTypeInfo("P", "Internal for double-skin ducts")]
         InternalDoubleSkin
     }
@@ -19,6 +21,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_Model
     {
         public static string GetId(this InsulationType t)
             => t.GetAttribute<InsulationTypeInfoAttribute>().Id;
+
         public static string GetDescription(this InsulationType t)
             => t.GetAttribute<InsulationTypeInfoAttribute>().Description;
     }

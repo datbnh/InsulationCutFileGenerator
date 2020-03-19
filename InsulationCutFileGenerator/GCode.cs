@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGenerator
 {
@@ -25,7 +21,7 @@ namespace InsulationCutFileGenerator
 
         public static string MoveTo(long xMillimeters, long yMillimeters)
         {
-            return string.Format("X{0:0}Y{1:0}*", xMillimeters*10, yMillimeters*10);
+            return string.Format("X{0:0}Y{1:0}*", xMillimeters * 10, yMillimeters * 10);
         }
 
         public static string KnifeDown()

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGenerator
 {
@@ -27,7 +22,8 @@ namespace InsulationCutFileGenerator
             {
                 FemaleSize = Math.Min(femaleSize, maleSize);
                 MaleSize = Math.Max(femaleSize, maleSize);
-            } else
+            }
+            else
             {
                 FemaleSize = femaleSize;
                 MaleSize = maleSize;

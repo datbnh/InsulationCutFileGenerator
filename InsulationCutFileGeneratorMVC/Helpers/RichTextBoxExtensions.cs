@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC.Helpers
@@ -22,7 +17,7 @@ namespace InsulationCutFileGeneratorMVC.Helpers
             richTextBox.SelectionFont = currentFont;
         }
 
-        public static void AppendText(this RichTextBox richTextBox, string text, 
+        public static void AppendText(this RichTextBox richTextBox, string text,
             Color textColor, FontStyle fontStyle)
         {
             var currentFont = richTextBox.Font;
@@ -36,6 +31,5 @@ namespace InsulationCutFileGeneratorMVC.Helpers
             richTextBox.SelectionFont = currentFont;
             richTextBox.SelectionColor = richTextBox.ForeColor;
         }
-
     }
 }
