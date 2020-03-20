@@ -1,4 +1,4 @@
-﻿namespace InsulationCutFileGeneratorMVC.Core
+﻿namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
 {
     public class DataEntryValidationResult
     {

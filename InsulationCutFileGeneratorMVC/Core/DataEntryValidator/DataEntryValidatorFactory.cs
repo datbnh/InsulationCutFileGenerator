@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace InsulationCutFileGeneratorMVC.Core
+namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
 {
     // following the pattern on https://softwareengineering.stackexchange.com/questions/345672/c-when-one-should-go-for-factory-method-pattern-instead-of-factory-pattern
 
-    public class DataEntryValidatorFactory
+    internal class DataEntryValidatorFactory
     {
         private static readonly DataEntryValidatorFactory instance = new DataEntryValidatorFactory();
         private static Dictionary<InsulationType, Func<IDataEntryValidator>> 

@@ -1,8 +1,8 @@
 ﻿using InsulationCutFileGeneratorMVC.MVC_Model;
 
-namespace InsulationCutFileGeneratorMVC.Core
+namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
 {
-    public class DataEntryValidatorUndefined : IDataEntryValidator
+    internal class DataEntryValidatorUndefined : IDataEntryValidator
     {
         public InsulationType InsulationType => InsulationType.Undefined;
 

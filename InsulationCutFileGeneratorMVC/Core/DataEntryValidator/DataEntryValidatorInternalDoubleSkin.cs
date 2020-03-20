@@ -1,9 +1,9 @@
 ﻿using InsulationCutFileGeneratorMVC.MVC_Model;
 using System;
 
-namespace InsulationCutFileGeneratorMVC.Core
+namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
 {
-    public class DataEntryValidatorInternalDoubleSkin : IDataEntryValidator
+    internal class DataEntryValidatorInternalDoubleSkin : IDataEntryValidator
     {
         public InsulationType InsulationType => InsulationType.InternalDoubleSkin;
 
