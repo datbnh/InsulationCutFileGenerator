@@ -24,7 +24,7 @@ namespace InsulationCutFileGeneratorMVC
             IList dataEntries = new ArrayList();
             DataEntryController controller = new DataEntryController(view, dataEntries);
             controller.LoadView();
-            view.ShowDialog();
+            Application.Run(view);
         }
     }
 }
