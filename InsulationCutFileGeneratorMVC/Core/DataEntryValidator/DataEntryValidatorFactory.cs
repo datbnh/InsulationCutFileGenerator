@@ -10,11 +10,21 @@ namespace InsulationCutFileGeneratorMVC.Core
 
     public class DataEntryValidatorFactory
     {
-        public Dictionary<InsulationType, Func<IDataEntryValidator>> DataEntryValidatorCreators { get; private set; }
+        private static readonly DataEntryValidatorFactory instance = new DataEntryValidatorFactory();
+        private static Dictionary<InsulationType, Func<IDataEntryValidator>> 
+            DataEntryValidatorCreators { get; set; }
 
-        public DataEntryValidatorFactory()
+        // Explicit static constructor to tell C# compiler
+        // not to mark type as beforefieldinit
+        static DataEntryValidatorFactory()
         {
-            //Here, we use reflection and Linq to find all IShip implementations;
+
+        }
+
+        private DataEntryValidatorFactory()
+        {
+            Console.WriteLine("Initialising DataEntryValidatorFactory...");
+            //Here, we use reflection and Linq to find all IDataEntryValidator implementations;
             //other methods to dynamically set up the dictionary exist
             DataEntryValidatorCreators = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t
@@ -23,7 +33,10 @@ namespace InsulationCutFileGeneratorMVC.Core
                     => new Func<IDataEntryValidator>(()
                         => Activator.CreateInstance(t) as IDataEntryValidator))
                 .ToDictionary(f => f().InsulationType);
+            Console.WriteLine("DataEntryValidatorFactory initialised.");
         }
+
+        public static DataEntryValidatorFactory Factory => instance;
 
         public IDataEntryValidator GetInstance(InsulationType type)
         {
