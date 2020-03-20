@@ -1,4 +1,5 @@
-﻿using InsulationCutFileGeneratorMVC.Helpers;
+﻿using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
+using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Controller;
 using InsulationCutFileGeneratorMVC.MVC_Model;
 using System;
@@ -97,6 +98,11 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 
         internal void ShowValidationInfo(DataEntry entry)
         {
+            //TODO test code to be removed
+            GeneratorInternal x = new GeneratorInternal();
+            var text = x.GenerateActionSequence(entry).GetText();
+            Console.WriteLine(text);
+            // end test code
             var result = controller.Validate(entry);
             if (result.IsValid)
             {
