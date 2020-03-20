@@ -387,6 +387,7 @@
             this.dataEntriesListView.TabIndex = 1;
             this.dataEntriesListView.UseCompatibleStateImageBehavior = false;
             this.dataEntriesListView.View = System.Windows.Forms.View.Details;
+            this.dataEntriesListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.dataEntriesListView_ItemSelectionChanged);
             this.dataEntriesListView.SelectedIndexChanged += new System.EventHandler(this.listDataEntries_SelectedIndexChanged);
             // 
             // columnHeader1
@@ -649,6 +650,7 @@
             this.buttonPreview.TabIndex = 3;
             this.buttonPreview.Text = "    Preview\r\nG-Code...";
             this.buttonPreview.UseVisualStyleBackColor = true;
+            this.buttonPreview.Click += new System.EventHandler(this.buttonPreview_Click);
             // 
             // button2
             // 
