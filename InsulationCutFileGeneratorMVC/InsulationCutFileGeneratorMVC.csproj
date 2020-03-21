@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\ActionGenerator\Action.cs" />
-    <Compile Include="Core\ActionGenerator\ActionParser.cs" />
+    <Compile Include="Core\ActionGenerator\ActionDecomposer.cs" />
     <Compile Include="Core\ActionGenerator\GeneratorInternal.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidator.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorUndefined.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Core\DataEntryValidator\IDataEntryValidator.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternal.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternalDoubleSkin.cs" />
+    <Compile Include="Core\GCoder.cs" />
     <Compile Include="Helpers\ComboBoxExtensions.cs" />
     <Compile Include="Helpers\ComboBoxItem.cs" />
     <Compile Include="Helpers\EnumExtensions.cs" />

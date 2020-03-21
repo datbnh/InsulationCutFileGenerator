@@ -19,16 +19,18 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
             if (!entry.Validate().IsValid)
                 throw new ArgumentException("Invalid data entry.");
 
-            List<KeyValuePair<Action, object[]>> output = new List<KeyValuePair<Action, object[]>>();
-            output.Add(new KeyValuePair<Action, object[]>
-                (Action.Initialize, null));
+            List<KeyValuePair<Action, object[]>> output = new List<KeyValuePair<Action, object[]>>
+            {
+                new KeyValuePair<Action, object[]>
+                (Action.Initialize, null),
 
-            output.Add(new KeyValuePair<Action, object[]>
-                (Action.RipCutBackward, new object[] { 0, "RIP CUT BEFORE" }));
+                new KeyValuePair<Action, object[]>
+                (Action.RipCutBackward, new object[] { 0, "RIP CUT BEFORE" })
+            };
 
             var sixMmStep = DataEntryValidatorInternal.GetInsulationSixMmSize(entry);
             var pittsburghStep = DataEntryValidatorInternal.GetInsulationPittsburgSize(entry);
-            var currentX = 0;
+            int currentX = 0;
             for (int quantityCount = 0; quantityCount < entry.Quantity; quantityCount++)
             {
                 for (int i = 0; i < 2; i++)
@@ -39,10 +41,10 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 
                     currentX += sixMmStep;
                     output.Add(new KeyValuePair<Action, object[]>
-                        (Action.RipCutForward, new object[] { currentX, "M/" + text }));
+                        (Action.RipCutForward, new object[] { currentX, text + "M" }));
                     currentX += pittsburghStep;
                     output.Add(new KeyValuePair<Action, object[]>
-                        (Action.RipCutBackward, new object[] { currentX, "F/" + text }));
+                        (Action.RipCutBackward, new object[] { currentX, text + "F" }));
                 }
             }
 
@@ -50,7 +52,5 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 
             return output;
         }
-
-        
     }
 }

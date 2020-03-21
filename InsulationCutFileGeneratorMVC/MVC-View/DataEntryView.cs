@@ -1,4 +1,5 @@
-﻿using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
+﻿using InsulationCutFileGeneratorMVC.Core;
+using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
 using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Controller;
 using InsulationCutFileGeneratorMVC.MVC_Model;
@@ -100,7 +101,9 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         {
             //TODO test code to be removed
             GeneratorInternal x = new GeneratorInternal();
-            var text = x.GenerateActionSequence(entry).GetText();
+            //var text = x.GenerateActionSequence(entry).GetText();
+            GCoder.ResetGlobalLineBlockCounter();
+            var text = GCoder.GenerateGCode(x.GenerateActionSequence(entry));
             Console.WriteLine(text);
             // end test code
             var result = controller.Validate(entry);
