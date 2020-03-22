@@ -1,6 +1,4 @@
-﻿using InsulationCutFileGeneratorMVC.Core;
-using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
-using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
+﻿using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
 using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Controller;
 using InsulationCutFileGeneratorMVC.MVC_Model;
@@ -12,22 +10,25 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 {
     public partial class DataEntryView : Form, IDataEntryView
     {
-        public CodePreviewWindow CodePreviewWindow;
+        private readonly CodePreviewWindow codePreviewWindow;
 
-        public DataEntryViewMode Mode;
+        private DataEntryViewMode mode;
 
         private DataEntryController controller;
 
         private bool isDataChanged = false;
         private int lastSelectedRowIndex = -1;
 
+        private readonly string captionTextFormatter
+            = "{0}{1} | Insulation Cut File Generator";
+
         public DataEntryView()
         {
             InitializeComponent();
             InitializeInsulationTypeComboBox();
             InitializeInsulationThicknessComboBox();
-            CodePreviewWindow = new CodePreviewWindow();
-            CodePreviewWindow.Hide();
+            codePreviewWindow = new CodePreviewWindow();
+            codePreviewWindow.Hide();
         }
 
         public string DuctId { get { return textBoxDuctId.Text; } set { textBoxDuctId.Text = value; } }
@@ -46,7 +47,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
             set => SelectInsulationType(value);
         }
 
-        public bool IsDataChanged { get { return isDataChanged; } set { isDataChanged = value; if (value) Text = "*"; else Text = ""; } }
+        public bool IsDataChanged { get { return isDataChanged; } set { isDataChanged = value; UpdateCaptionText(); } }
 
         public string JobName { get { return textBoxJobName.Text; } set { textBoxJobName.Text = value; } }
 
@@ -125,23 +126,17 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 
         private void listDataEntries_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("SelectedIndexChanged");
+            if (dataEntriesListView.SelectedItems.Count <= 0)
+                return;
+            if (dataEntriesListView.SelectedIndices[0] == lastSelectedRowIndex)
+                return;
+            if ((mode == DataEntryViewMode.New || mode == DataEntryViewMode.Edit) && IsDataChanged)
+                if (MessageBox.Show("Discard changes and continue?", "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                    == DialogResult.No)
+                    return;
 
-            //for (int i = 0; i < dataEntriesListView.SelectedItems.Count; i++)
-            //{
-            //    Console.WriteLine(e.ToString() + "> " + dataEntriesListView.SelectedItems[i].Text);
-            //}
-            //if ((Mode == DataEntryViewMode.New || Mode == DataEntryViewMode.Edit) && IsDataChanged)
-            //    if (MessageBox.Show("Discard changes and continue?", "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            //        == DialogResult.No)
-            //        return;
-            //if (dataEntriesListView.SelectedItems.Count <= 0)
-            //    return;
-            ////Console.WriteLine(lastSelectedRowIndex + " > " + listDataEntries.SelectedIndices[0]);
-            //if (dataEntriesListView.SelectedIndices[0] == lastSelectedRowIndex)
-            //    return;
-            ////controller.SelectEntry(dataEntriesListView.SelectedItems[0].Text);
-            //lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
+            controller.SelectEntry(dataEntriesListView.SelectedItems[0].Text);
+            lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
         }
 
         private void buttonPreview_Click(object sender, EventArgs e)
@@ -169,8 +164,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 
         internal void PreviewGCode(string text)
         {
-            CodePreviewWindow.PreviewText = text;
-            CodePreviewWindow.Text = (
+            codePreviewWindow.PreviewText = text;
+            codePreviewWindow.Text = (
                 "Previewing Entry "
                 + textBoxEntryId.Text
                 + " ["
@@ -186,7 +181,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                 + controller.CurrentEntry.Quantity + " off"
                 + "]").Trim();
 
-            CodePreviewWindow.ShowDialog();
+            codePreviewWindow.ShowDialog();
         }
 
         private void InitializeInsulationTypeComboBox()
@@ -236,8 +231,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 
         public void SetMode(DataEntryViewMode mode)
         {
-            this.Mode = mode;
-            switch (this.Mode)
+            this.mode = mode;
+            switch (this.mode)
             {
                 case DataEntryViewMode.New:
                     textBoxEntryId.ReadOnly = true;
@@ -317,6 +312,15 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     button2.Enabled = false;
                     break;
             }
+
+            UpdateCaptionText();
+        }
+
+        private void UpdateCaptionText()
+        {
+            Text = string.Format(captionTextFormatter, 
+                ("Entry [" + textBoxEntryId.Text + "]"), 
+                isDataChanged ? "*" : "");
         }
 
         public void SelectEntry(DataEntry currentEntry)
@@ -450,22 +454,5 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         }
 
         #endregion View implementation
-
-        private void dataEntriesListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            Console.WriteLine("ItemSelectionChanged>");
-
-            if ((Mode == DataEntryViewMode.New || Mode == DataEntryViewMode.Edit) && IsDataChanged)
-                if (MessageBox.Show("Discard changes and continue?", "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-                    == DialogResult.No)
-                    return;
-            if (dataEntriesListView.SelectedItems.Count <= 0)
-                return;
-            if (dataEntriesListView.SelectedIndices[0] == lastSelectedRowIndex)
-                return;
-
-            controller.SelectEntry(dataEntriesListView.SelectedItems[0].Text);
-            lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
-        }
     }
 }

@@ -3,7 +3,6 @@ using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
 using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
 using InsulationCutFileGeneratorMVC.MVC_Model;
 using InsulationCutFileGeneratorMVC.MVC_View;
-using System;
 using System.Collections;
 using System.Media;
 

@@ -12,6 +12,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                 label1.Text = richTextBox1.TextLength.ToString() + " bytes.";
             }
         }
+
         public CodePreviewWindow()
         {
             InitializeComponent();

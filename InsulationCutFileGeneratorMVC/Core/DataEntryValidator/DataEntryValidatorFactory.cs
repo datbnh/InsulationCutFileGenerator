@@ -11,14 +11,15 @@ namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
     internal class DataEntryValidatorFactory
     {
         private static readonly DataEntryValidatorFactory instance = new DataEntryValidatorFactory();
-        private static Dictionary<InsulationType, Func<IDataEntryValidator>> 
-            DataEntryValidatorCreators { get; set; }
+
+        private static Dictionary<InsulationType, Func<IDataEntryValidator>>
+            DataEntryValidatorCreators
+        { get; set; }
 
         // Explicit static constructor to tell C# compiler
         // not to mark type as beforefieldinit
         static DataEntryValidatorFactory()
         {
-
         }
 
         private DataEntryValidatorFactory()

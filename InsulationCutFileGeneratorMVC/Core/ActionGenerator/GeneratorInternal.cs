@@ -2,20 +2,15 @@
 using InsulationCutFileGeneratorMVC.MVC_Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 {
-
     public class GeneratorInternal : IGenerator
     {
         public InsulationType InsulationType => InsulationType.Internal;
 
         public List<KeyValuePair<Action, object[]>> GenerateActionSequence(DataEntry entry)
         {
-
             if (!entry.Validate().IsValid)
                 throw new ArgumentException("Invalid data entry.");
 

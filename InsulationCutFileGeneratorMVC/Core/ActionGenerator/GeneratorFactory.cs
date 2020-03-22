@@ -3,14 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 {
     internal class GeneratorFactory
     {
         private static readonly GeneratorFactory instance = new GeneratorFactory();
+
         private static Dictionary<InsulationType, Func<IGenerator>>
             GeneratorCreators
         { get; set; }
@@ -19,7 +18,6 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
         // not to mark type as beforefieldinit
         static GeneratorFactory()
         {
-
         }
 
         private GeneratorFactory()

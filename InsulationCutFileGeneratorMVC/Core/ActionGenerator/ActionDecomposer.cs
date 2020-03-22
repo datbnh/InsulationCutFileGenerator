@@ -1,9 +1,6 @@
 ﻿using InsulationCutFileGeneratorMVC.MVC_Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 {
@@ -49,12 +46,15 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
                 case Action.RipCutForward:
                     output.AddRange(DecomposeRipCutForward(action));
                     break;
+
                 case Action.RipCutBackward:
                     output.AddRange(DecomposeRipCutBackward(action));
                     break;
+
                 case Action.LCut:
                     output.AddRange(DecomposeLCut(action));
                     break;
+
                 case Action.Initialize:
                 case Action.End:
                 case Action.AddText:
