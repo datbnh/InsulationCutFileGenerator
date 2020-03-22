@@ -13,7 +13,7 @@ namespace InsulationCutFileGeneratorMVC.Core.DataEntryValidator
             var insulationSixMmSize = GetInsulationSixMmSize(entry);
             if (entry.InsulationType == InsulationType.Undefined)
                 return new DataEntryValidationResult(false,
-                    "Insulation type is undefined.");
+                    "Undefined insulation type.");
             if (entry.InsulationThickness == InsulationThickness.Undefined)
                 return new DataEntryValidationResult(false,
                     "Undefined insulation thickness.");

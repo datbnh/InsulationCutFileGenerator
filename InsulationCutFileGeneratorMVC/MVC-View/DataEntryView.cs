@@ -1,5 +1,6 @@
 ﻿using InsulationCutFileGeneratorMVC.Core;
 using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
+using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
 using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Controller;
 using InsulationCutFileGeneratorMVC.MVC_Model;
@@ -97,20 +98,12 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
             controller.CreateNewEntry();
         }
 
-        internal void ShowValidationInfo(DataEntry entry)
+        internal void ShowValidationInfo(DataEntryValidationResult result)
         {
-            //TODO test code to be removed
-            GeneratorInternal x = new GeneratorInternal();
-            //var text = x.GenerateActionSequence(entry).GetText();
-            GCoder.ResetGlobalLineBlockCounter();
-            var text = GCoder.GenerateGCode(x.GenerateActionSequence(entry));
-            Console.WriteLine(text);
-            // end test code
-            var result = controller.Validate(entry);
             if (result.IsValid)
             {
-                //textBox4.ForeColor = Color.Black;
-                textBox4.Text = result.Description;
+                textBox4.Clear();
+                textBox4.AppendText(result.Description);
             }
             else
             {
@@ -151,6 +144,11 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
             //lastSelectedRowIndex = dataEntriesListView.SelectedIndices[0];
         }
 
+        private void buttonPreview_Click(object sender, EventArgs e)
+        {
+            controller.PreviewGCode();
+        }
+
         #endregion Events raised back to controller
 
         #region View implementation
@@ -167,6 +165,28 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     + item.GetDescription(), item));
             }
             comboBoxInsulationThickness.SelectedIndex = 0;
+        }
+
+        internal void PreviewGCode(string text)
+        {
+            CodePreviewWindow.PreviewText = text;
+            CodePreviewWindow.Text = (
+                "Previewing Entry "
+                + textBoxEntryId.Text
+                + " ["
+                + (string.IsNullOrEmpty(controller.CurrentEntry.JobName) ? "" : (controller.CurrentEntry.JobName + "-"))
+                + (string.IsNullOrEmpty(controller.CurrentEntry.DuctId) ? "" : (controller.CurrentEntry.DuctId + ": "))
+                + controller.CurrentEntry.PittsburghSize
+                + "×"
+                + controller.CurrentEntry.SixMmSize
+                + " "
+                + controller.CurrentEntry.InsulationType.GetId()
+                + controller.CurrentEntry.InsulationThickness.GetId()
+                + "×"
+                + controller.CurrentEntry.Quantity + " off"
+                + "]").Trim();
+
+            CodePreviewWindow.ShowDialog();
         }
 
         private void InitializeInsulationTypeComboBox()
@@ -235,6 +255,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     buttonRemove.Enabled = false;
                     groupBox1.Text = "New Entry";
                     textBox4.Text = "";
+                    buttonPreview.Enabled = false;
+                    button2.Enabled = false;
                     break;
 
                 case DataEntryViewMode.View:
@@ -252,6 +274,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     buttonClear.Enabled = false;
                     buttonRemove.Enabled = true;
                     groupBox1.Text = "Displaying Entry [" + textBoxEntryId.Text + "]";
+                    buttonPreview.Enabled = true;
+                    button2.Enabled = true;
                     break;
 
                 case DataEntryViewMode.Edit:
@@ -270,6 +294,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     buttonRemove.Enabled = true;
                     groupBox1.Text = "Modifying Entry [" + textBoxEntryId.Text + "]";
                     textBox4.Text = "";
+                    buttonPreview.Enabled = false;
+                    button2.Enabled = false;
                     break;
 
                 default:
@@ -287,6 +313,8 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     buttonClear.Enabled = false;
                     buttonRemove.Enabled = false;
                     groupBox1.Text = "ERROR: Undefined View Mode";
+                    buttonPreview.Enabled = false;
+                    button2.Enabled = false;
                     break;
             }
         }
@@ -422,11 +450,6 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         }
 
         #endregion View implementation
-
-        private void buttonPreview_Click(object sender, EventArgs e)
-        {
-            CodePreviewWindow.ShowDialog();
-        }
 
         private void dataEntriesListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {

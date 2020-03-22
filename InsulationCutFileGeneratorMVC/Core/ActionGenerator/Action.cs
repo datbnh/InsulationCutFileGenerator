@@ -40,29 +40,43 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
         ///// Text provided through arg3.
         ///// </summary>
         //HorizontalCutBackward,
-        ///// <summary>
-        ///// MoveTo(arg0, 0),
-        ///// KnifeDown,
-        ///// then MoveTo(arg0, DataEntry.DUCT_FULL_LENGTH),
-        ///// then KnifeUp.
-        ///// Text provided through arg1.
-        ///// </summary>
+        /// <summary>
+        /// Compound action. Requires at least 1 arg: {int arg0, string arg1}.
+        /// <para>
+        /// Decomposed action sequence: 
+        /// ❶ MoveTo(arg0, 0) 
+        /// ➤ ❷ KnifeDown 
+        /// ➤ ❸ MoveTo(arg0, DataEntry.DUCT_FULL_LENGTH) 
+        /// ➤ ❹ KnifeUp.
+        /// </para>
+        /// Text can be provided through arg1.
+        /// </summary>
         RipCutForward,
         /// <summary>
-        /// MoveTo(arg0, DataEntry.DUCT_FULL_LENGTH),
-        /// KnifeDown,
-        /// then MoveTo(arg0, 0),
-        /// then KnifeUp.
-        /// Text provided through arg1.
+        /// Compound action. Requires at least 1 arg: {int arg0, string arg1}.
+        /// <para>
+        /// Decomposed action sequence: 
+        /// ❶ MoveTo(arg0, DataEntry.DUCT_FULL_LENGTH) 
+        /// ➤ ❷ KnifeDown 
+        /// ➤ ❸ MoveTo(arg0, 0) 
+        /// ➤ ❹ KnifeUp.
+        /// </para>
+        /// Text can provided through arg1.
         /// </summary>
         RipCutBackward,
         /// <summary>
-        /// MoveTo(arg0, 0),
-        /// KnifeDown,
-        /// then MoveTo(arg1, 0),
-        /// then MoveTo(arg1, DataEntry.DUCT_FULL_LENGTH),
-        /// then KnifeUp.
-        /// Text provided through arg2. 
+        /// Compound action. Requires at least 2 args: {int arg0, int arg1, string arg2}.
+        /// <para>
+        /// Decomposed action sequence: 
+        /// ❶ MoveTo(arg0, 0) 
+        /// ➤ ❷ KnifeDown 
+        /// ➤ ❸ MoveTo(arg1, 0) 
+        /// ➤ ❹ MoveTo(arg1, DataEntry.DUCT_FULL_LENGTH) 
+        /// ➤ ❺ KnifeUp.
+        /// </para>
+        /// <para>
+        /// Text can be provided through arg2. 
+        /// </para>
         /// </summary>
         LCut,
     }

@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 {
-
-    public class GeneratorInternal : IGenerator
+    public class GeneratorInternalDoubleSkin : IGenerator
     {
-        public InsulationType InsulationType => InsulationType.Internal;
+        public InsulationType InsulationType => InsulationType.InternalDoubleSkin;
 
         public List<KeyValuePair<Action, object[]>> GenerateActionSequence(DataEntry entry)
         {
@@ -28,8 +27,8 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
                 (Action.RipCutBackward, new object[] { 0, "RIP CUT BEFORE" })
             };
 
-            var sixMmStep = DataEntryValidatorInternal.GetInsulationSixMmSize(entry);
-            var pittsburghStep = DataEntryValidatorInternal.GetInsulationPittsburgSize(entry);
+            var sixMmStep = DataEntryValidatorInternalDoubleSkin.GetInsulationSixMmSize(entry);
+            var pittsburghStep = DataEntryValidatorInternalDoubleSkin.GetInsulationPittsburgSize(entry);
             int currentX = 0;
             for (int quantityCount = 0; quantityCount < entry.Quantity; quantityCount++)
             {

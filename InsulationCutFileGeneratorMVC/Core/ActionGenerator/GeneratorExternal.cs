@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
 {
-
-    public class GeneratorInternal : IGenerator
+    public class GeneratorExternal : IGenerator
     {
-        public InsulationType InsulationType => InsulationType.Internal;
+        public InsulationType InsulationType => InsulationType.External;
 
         public List<KeyValuePair<Action, object[]>> GenerateActionSequence(DataEntry entry)
         {
@@ -28,24 +27,18 @@ namespace InsulationCutFileGeneratorMVC.Core.ActionGenerator
                 (Action.RipCutBackward, new object[] { 0, "RIP CUT BEFORE" })
             };
 
-            var sixMmStep = DataEntryValidatorInternal.GetInsulationSixMmSize(entry);
-            var pittsburghStep = DataEntryValidatorInternal.GetInsulationPittsburgSize(entry);
+            var laggingLength = DataEntryValidatorExternal.GetLaggingLength(entry);
             int currentX = 0;
             for (int quantityCount = 0; quantityCount < entry.Quantity; quantityCount++)
             {
-                for (int i = 0; i < 2; i++)
-                {
-                    string text = string.Format("{0}{1:0}",
-                        string.IsNullOrEmpty(entry.DuctId) ?
-                        "" : entry.DuctId + "/", quantityCount + 1);
+                string text = string.Format("{0}{1:0}",
+                    string.IsNullOrEmpty(entry.DuctId) ?
+                    "" : entry.DuctId + "/", quantityCount + 1);
 
-                    currentX += sixMmStep;
-                    output.Add(new KeyValuePair<Action, object[]>
-                        (Action.RipCutForward, new object[] { currentX, text + "M" }));
-                    currentX += pittsburghStep;
-                    output.Add(new KeyValuePair<Action, object[]>
-                        (Action.RipCutBackward, new object[] { currentX, text + "F" }));
-                }
+                output.Add(new KeyValuePair<Action, object[]>
+                    (Action.LCut, new object[] { currentX, currentX + laggingLength, text }));
+
+                currentX += laggingLength;
             }
 
             output.Add(new KeyValuePair<Action, object[]>(Action.End, null));

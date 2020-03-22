@@ -48,7 +48,13 @@
   <ItemGroup>
     <Compile Include="Core\ActionGenerator\Action.cs" />
     <Compile Include="Core\ActionGenerator\ActionDecomposer.cs" />
+    <Compile Include="Core\ActionGenerator\Generator.cs" />
+    <Compile Include="Core\ActionGenerator\GeneratorExternal.cs" />
+    <Compile Include="Core\ActionGenerator\GeneratorFactory.cs" />
     <Compile Include="Core\ActionGenerator\GeneratorInternal.cs" />
+    <Compile Include="Core\ActionGenerator\GeneratorInternalDoubleSkin.cs" />
+    <Compile Include="Core\ActionGenerator\GeneratorUndefined.cs" />
+    <Compile Include="Core\ActionGenerator\IGenerator.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidator.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorUndefined.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorFactory.cs" />

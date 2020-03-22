@@ -1,46 +1,51 @@
 ﻿using InsulationCutFileGeneratorMVC.Core;
+using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
 using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
 using InsulationCutFileGeneratorMVC.MVC_Model;
 using InsulationCutFileGeneratorMVC.MVC_View;
+using System;
 using System.Collections;
+using System.Media;
 
 namespace InsulationCutFileGeneratorMVC.MVC_Controller
 {
     public class DataEntryController : IDataEntryController
     {
-        private DataEntry currentEntry;
+        public DataEntry CurrentEntry { get; private set; }
         private readonly IList dataEntries;
         private string lastSelectedId = "1";
         private int nextId = 1;
         private readonly DataEntryView view;
-
-        //private Core.DataEntryValidatorFactory validatorFactory;
-        //private Core.IDataEntryValidator validator;
 
         public DataEntryController(DataEntryView view, IList dataEntries)
         {
             this.view = view;
             this.dataEntries = dataEntries;
             view.SetController(this);
-            //validatorFactory = new Core.DataEntryValidatorFactory();
         }
 
         public void AddOrUpdateCurrentEntry()
         {
             UpdateViewToCurrentEntry();
-            if (!dataEntries.Contains(currentEntry)) // update existing entry
+            var result = Validate(CurrentEntry);
+            view.ShowValidationInfo(result);
+            if (!result.IsValid)
             {
-                dataEntries.Add(currentEntry);
-                view.AddEntryToListView(currentEntry);
+                SystemSounds.Exclamation.Play();
+                return; // only valid entry will be accepted.
+            }
+            if (!dataEntries.Contains(CurrentEntry)) // update existing entry
+            {
+                dataEntries.Add(CurrentEntry);
+                view.AddEntryToListView(CurrentEntry);
                 nextId++;
             }
             else // add new entry
             {
-                view.UpdateEntryInListVew(currentEntry);
+                view.UpdateEntryInListVew(CurrentEntry);
             }
             view.SetMode(DataEntryViewMode.View);
-            view.SelectEntry(currentEntry);
-            view.ShowValidationInfo(currentEntry);
+            view.SelectEntry(CurrentEntry);
         }
 
         public void BeginModifyingSelectedEntry()
@@ -55,7 +60,7 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
 
         public void ClearCurrentEntry()
         {
-            view.EntryId = currentEntry.Id;
+            view.EntryId = CurrentEntry.Id;
             view.JobName = "";
             view.DuctId = "";
             view.PittsburghSize = 0;
@@ -68,15 +73,15 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
 
         public void CreateNewEntry()
         {
-            currentEntry = new DataEntry(nextId.ToString());
+            CurrentEntry = new DataEntry(nextId.ToString());
             UpdateViewFromCurrentEntry();
             view.SetMode(DataEntryViewMode.New);
         }
 
         public void DuplicateSelectedEntry()
         {
-            lastSelectedId = currentEntry.Id; // save current id in case user cancels action
-            currentEntry = new DataEntry(nextId.ToString())
+            lastSelectedId = CurrentEntry.Id; // save current id in case user cancels action
+            CurrentEntry = new DataEntry(nextId.ToString())
             {
                 JobName = view.JobName,
                 DuctId = view.DuctId,
@@ -101,11 +106,11 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
             {
                 if (entry.Id == id)
                 {
-                    currentEntry = entry;
+                    CurrentEntry = entry;
                     UpdateViewFromCurrentEntry();
                     view.SelectEntry(entry);
                     view.SetMode(DataEntryViewMode.View);
-                    view.ShowValidationInfo(entry);
+                    view.ShowValidationInfo(Validate(entry));
                     break;
                 }
             }
@@ -113,7 +118,6 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
 
         public DataEntryValidationResult Validate(DataEntry entry)
         {
-            //validator = DataEntryValidatorFactory.Factory.GetInstance(entry.InsulationType);
             return entry.Validate();
         }
 
@@ -133,27 +137,34 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
 
         private void UpdateViewFromCurrentEntry()
         {
-            view.EntryId = currentEntry.Id;
-            view.JobName = currentEntry.JobName;
-            view.DuctId = currentEntry.DuctId;
-            view.PittsburghSize = currentEntry.PittsburghSize;
-            view.SixMmSize = currentEntry.SixMmSize;
-            view.InsulationType = currentEntry.InsulationType;
-            view.InsulationThickness = currentEntry.InsulationThickness;
-            view.Quantity = currentEntry.Quantity;
+            view.EntryId = CurrentEntry.Id;
+            view.JobName = CurrentEntry.JobName;
+            view.DuctId = CurrentEntry.DuctId;
+            view.PittsburghSize = CurrentEntry.PittsburghSize;
+            view.SixMmSize = CurrentEntry.SixMmSize;
+            view.InsulationType = CurrentEntry.InsulationType;
+            view.InsulationThickness = CurrentEntry.InsulationThickness;
+            view.Quantity = CurrentEntry.Quantity;
             view.IsDataChanged = false;
         }
 
         private void UpdateViewToCurrentEntry()
         {
-            currentEntry.Id = view.EntryId;
-            currentEntry.JobName = view.JobName;
-            currentEntry.DuctId = view.DuctId;
-            currentEntry.PittsburghSize = view.PittsburghSize;
-            currentEntry.SixMmSize = view.SixMmSize;
-            currentEntry.InsulationType = view.InsulationType;
-            currentEntry.InsulationThickness = view.InsulationThickness;
-            currentEntry.Quantity = view.Quantity;
+            CurrentEntry.Id = view.EntryId;
+            CurrentEntry.JobName = view.JobName;
+            CurrentEntry.DuctId = view.DuctId;
+            CurrentEntry.PittsburghSize = view.PittsburghSize;
+            CurrentEntry.SixMmSize = view.SixMmSize;
+            CurrentEntry.InsulationType = view.InsulationType;
+            CurrentEntry.InsulationThickness = view.InsulationThickness;
+            CurrentEntry.Quantity = view.Quantity;
+        }
+
+        internal void PreviewGCode()
+        {
+            GCoder.ResetGlobalLineBlockCounter();
+            var text = GCoder.GenerateGCode(CurrentEntry.GenerateActionSequence());
+            view.PreviewGCode(text);
         }
     }
 }
