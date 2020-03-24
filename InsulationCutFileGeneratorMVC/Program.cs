@@ -15,16 +15,8 @@ namespace InsulationCutFileGeneratorMVC
         private static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            DataEntryView view = new DataEntryView
-            {
-                Visible = false
-            };
-            IList dataEntries = new ArrayList();
-            DataEntryController controller = new DataEntryController(view, dataEntries);
-            controller.LoadView();
-            Application.Run(view);
+            Application.SetCompatibleTextRenderingDefault(false);          
+            Application.Run(new FormMain());
         }
     }
 }

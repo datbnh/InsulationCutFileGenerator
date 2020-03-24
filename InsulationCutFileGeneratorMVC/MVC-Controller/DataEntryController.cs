@@ -1,10 +1,14 @@
 ﻿using InsulationCutFileGeneratorMVC.Core;
 using InsulationCutFileGeneratorMVC.Core.ActionGenerator;
 using InsulationCutFileGeneratorMVC.Core.DataEntryValidator;
+using InsulationCutFileGeneratorMVC.Helpers;
 using InsulationCutFileGeneratorMVC.MVC_Model;
 using InsulationCutFileGeneratorMVC.MVC_View;
+using System;
 using System.Collections;
+using System.IO;
 using System.Media;
+using System.Windows;
 
 namespace InsulationCutFileGeneratorMVC.MVC_Controller
 {
@@ -164,6 +168,30 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
             GCoder.ResetGlobalLineBlockCounter();
             var text = GCoder.GenerateGCode(CurrentEntry.GenerateActionSequence());
             view.PreviewGCode(text);
+        }
+
+        internal void ExportSelectedEntry()
+        {
+            GCoder.ResetGlobalLineBlockCounter();
+            var text = GCoder.GenerateGCode(CurrentEntry.GenerateActionSequence());
+            var path = Path.GetFullPath(@".\STRAIGHT.CUT");
+            try
+            {
+                System.IO.File.WriteAllText(path, text);
+                TimedMessageBoxLoader.ShowTimedMessageBox(path, CurrentEntry.Id, 15);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error saving file. " 
+                    + ex.Message 
+                    + Environment.NewLine
+                    + Environment.NewLine
+                    + "Ensure the file " + path + " is closed and try again.", 
+                    "Error Saving File", 
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error);
+            }
         }
     }
 }

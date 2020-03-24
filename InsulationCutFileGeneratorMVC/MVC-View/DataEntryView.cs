@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC.MVC_View
 {
-    public partial class DataEntryView : Form, IDataEntryView
+    public partial class DataEntryView : UserControl, IDataEntryView
     {
         private readonly CodePreviewWindow codePreviewWindow;
 
@@ -454,5 +454,10 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         }
 
         #endregion View implementation
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            controller.ExportSelectedEntry();
+        }
     }
 }
