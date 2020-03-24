@@ -1,7 +1,4 @@
-﻿using InsulationCutFileGeneratorMVC.MVC_Controller;
-using InsulationCutFileGeneratorMVC.MVC_View;
-using System;
-using System.Collections;
+﻿using System;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC
@@ -15,7 +12,7 @@ namespace InsulationCutFileGeneratorMVC
         private static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);          
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
         }
     }

@@ -100,6 +100,7 @@
             this.checkBox1.Text = "Single Entry Mode";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.VisibleChanged += new System.EventHandler(this.checkBox1_VisibleChanged);
             // 
             // checkBox3
             // 
