@@ -14,12 +14,12 @@ namespace InsulationCutFileGeneratorMVC.Helpers
     {
         private readonly int interval;
         private int currentTime = 0;
-        public TimedMessageBox(string path, string entryId, int interval)
+        public TimedMessageBox(string line2asLink, string line3, int interval)
         {
             InitializeComponent();
             Text = "Cut File Exported Successfully";
-            linkLabel1.Text = path;
-            label3.Text = "for Entry " + entryId + ".";
+            linkLabel1.Text = line2asLink;
+            label3.Text = "for Entry " + line3 + ".";
             this.interval = interval;
             label1.Text = "Closing in " + (interval - currentTime) + " second" + (interval - currentTime == 1 ? "" : "s") + "...";
         }

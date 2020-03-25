@@ -37,7 +37,7 @@ namespace InsulationCutFileGeneratorMVC
                 UsePredefinedPath = true,
                 PredefinedFileName = "STRAIGHT.CUT",
                 PredefinedPath = @".\",
-                PasswordHash = "NoPassword"
+                PasswordHash = ""
             };
         }
 
@@ -123,10 +123,6 @@ namespace InsulationCutFileGeneratorMVC
         public static void SaveSettingsToRegistry()
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(REGISTRY_KEY_PATH);
-            byte[] data = Encoding.ASCII.GetBytes("HelloWorld");
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            string hash = Encoding.ASCII.GetString(data);
-            Instance.PasswordHash = hash;
 
             key.SetValue(nameof(Instance.IsSingleEntry),
                 Instance.IsSingleEntry);
@@ -146,5 +142,21 @@ namespace InsulationCutFileGeneratorMVC
                 string.IsNullOrEmpty(Instance.PasswordHash) ? "" : Instance.PasswordHash);
             key.Close();
         }
+
+        public static string GetPasswordHash(string password)
+        {
+            byte[] data = Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            return Encoding.ASCII.GetString(data);
+        }
+
+        public static void SavePassword(string password)
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(REGISTRY_KEY_PATH);
+            Instance.PasswordHash = GetPasswordHash(password);
+            key.SetValue(nameof(Instance.PasswordHash),
+                string.IsNullOrEmpty(Instance.PasswordHash) ? "" : Instance.PasswordHash);
+        }
+
     }
 }

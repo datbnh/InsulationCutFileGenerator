@@ -9,6 +9,7 @@ using System.Collections;
 using System.IO;
 using System.Media;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC.MVC_Controller
 {
@@ -174,24 +175,10 @@ namespace InsulationCutFileGeneratorMVC.MVC_Controller
         {
             GCoder.ResetGlobalLineBlockCounter();
             var text = GCoder.GenerateGCode(CurrentEntry.GenerateActionSequence());
-            var path = Path.GetFullPath(@".\STRAIGHT.CUT");
-            try
-            {
-                System.IO.File.WriteAllText(path, text);
-                TimedMessageBoxLoader.ShowTimedMessageBox(path, CurrentEntry.Id, 15);
-            }
-            catch (Exception ex)
-            {
 
-                MessageBox.Show("Error saving file. " 
-                    + ex.Message 
-                    + Environment.NewLine
-                    + Environment.NewLine
-                    + "Ensure the file " + path + " is closed and try again.", 
-                    "Error Saving File", 
-                    MessageBoxButton.OK, 
-                    MessageBoxImage.Error);
-            }
+            FileExporter.Export(text, CurrentEntry.Id);
+
+            
         }
     }
 }

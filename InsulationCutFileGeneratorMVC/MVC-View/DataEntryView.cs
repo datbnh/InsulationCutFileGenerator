@@ -22,12 +22,17 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
         private readonly string captionTextFormatter
             = "{0}{1} | Insulation Cut File Generator";
 
+        internal void ExportSelectedEntry()
+        {
+            controller.ExportSelectedEntry();
+        }
+
         public DataEntryView()
         {
             InitializeComponent();
             InitializeInsulationTypeComboBox();
             InitializeInsulationThicknessComboBox();
-            codePreviewWindow = new CodePreviewWindow();
+            codePreviewWindow = new CodePreviewWindow(this);
             codePreviewWindow.Hide();
         }
 
@@ -243,7 +248,15 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
-                    buttonSave.Text = "➕" + Environment.NewLine + "Add";
+                    if (Settings.Instance.IsSingleEntry) {
+                        buttonSave.Text = "Apply";
+                        buttonModify.Text = "New Entry";
+                    } 
+                    else
+                    {
+                        buttonSave.Text = "➕" + Environment.NewLine + "Add";
+                        buttonModify.Text = "Modify";
+                    }
                     buttonSave.Enabled = true;
                     buttonCancel.Enabled = true;
                     buttonClear.Enabled = true;
@@ -263,7 +276,17 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     DisableNumericUpDowns();
                     buttonModify.Enabled = true;
                     buttonDuplicate.Enabled = true;
-                    buttonSave.Text = "✔" + Environment.NewLine + "Update";
+                    if (Settings.Instance.IsSingleEntry)
+                    {
+                        buttonSave.Text = "Apply";
+                        buttonModify.Text = "New Entry";
+                    }
+                    else
+                    {
+                        buttonSave.Text = "➕" + Environment.NewLine + "Add";
+                        buttonModify.Text = "Modify";
+                    }
+                    //buttonSave.Text = "✔" + Environment.NewLine + "Update";
                     buttonSave.Enabled = false;
                     buttonCancel.Enabled = false;
                     buttonClear.Enabled = false;
@@ -282,7 +305,17 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
                     EnableNumericUpDowns();
                     buttonModify.Enabled = false;
                     buttonDuplicate.Enabled = false;
-                    buttonSave.Text = "✔" + Environment.NewLine + "Update";
+                    if (Settings.Instance.IsSingleEntry)
+                    {
+                        buttonSave.Text = "Apply";
+                        buttonModify.Text = "New Entry";
+                    }
+                    else
+                    {
+                        //buttonSave.Text = "➕" + Environment.NewLine + "Add";
+                        buttonSave.Text = "✔" + Environment.NewLine + "Update";
+                        buttonModify.Text = "Modify";
+                    }
                     buttonSave.Enabled = true;
                     buttonCancel.Enabled = true;
                     buttonClear.Enabled = true;
@@ -457,7 +490,51 @@ namespace InsulationCutFileGeneratorMVC.MVC_View
 
         private void button2_Click(object sender, EventArgs e)
         {
-            controller.ExportSelectedEntry();
+            ExportSelectedEntry();
+        }
+
+        private void DataEntryView_Load(object sender, EventArgs e)
+        {
+            UpdateUIFromSettings();
+        }
+
+        private void UpdateUIFromSettings()
+        {
+            if (Settings.Instance.IsUseFeMaleInstead)
+            {
+                label4.Text = "Female Size";
+                label5.Text = "Male Size";
+            }
+            else
+            {
+                label4.Text = "Pittsburgh Size";
+                label5.Text = "Six-mm Size";
+            }
+
+            if (Settings.Instance.IsSingleEntry) {
+                buttonNew.Visible = false;
+                buttonRemove.Visible = false;
+                buttonCancel.Visible = false;
+                buttonDuplicate.Visible = false;
+                //buttonModify.Visible = false;
+                dataEntriesListView.Visible = false;
+                buttonModify.Text = "New";
+            } 
+            else
+            {
+                buttonNew.Visible = true;
+                buttonRemove.Visible = true;
+                buttonCancel.Visible = true;
+                buttonDuplicate.Visible = true;
+                //buttonModify.Visible = true;
+                dataEntriesListView.Visible = true;
+                buttonModify.Text = "Modify";
+            }
+        }
+
+        private void DataEntryView_VisibleChanged(object sender, EventArgs e)
+        {
+            UpdateUIFromSettings();
         }
     }
 }

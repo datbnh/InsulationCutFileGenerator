@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,9 +25,7 @@ namespace InsulationCutFileGeneratorMVC
         private void button1_Click(object sender, EventArgs e)
         {
             //https://stackoverflow.com/questions/212510/what-is-the-easiest-way-to-encrypt-a-password-when-i-save-it-to-the-registry
-            byte[] data = Encoding.ASCII.GetBytes(textBox1.Text);
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            string hash = Encoding.ASCII.GetString(data);
+            var hash = Settings.GetPasswordHash(textBox1.Text);
 
             if (hash == passwordHash)
             {
@@ -35,6 +34,7 @@ namespace InsulationCutFileGeneratorMVC
             }
             else
             {
+                SystemSounds.Beep.Play();
                 label2.Visible = true;
             }
         }

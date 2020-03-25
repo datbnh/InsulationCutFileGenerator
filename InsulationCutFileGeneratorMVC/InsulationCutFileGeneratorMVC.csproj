@@ -63,6 +63,7 @@
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternal.cs" />
     <Compile Include="Core\DataEntryValidator\DataEntryValidatorInternalDoubleSkin.cs" />
     <Compile Include="Core\GCoder.cs" />
+    <Compile Include="FileExporter.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +108,12 @@
     <Compile Include="MVC-View\DataEntryViewMode.cs" />
     <Compile Include="MVC-Model\InsulationThickness.cs" />
     <Compile Include="MVC-Model\InsulationType.cs" />
+    <Compile Include="FormPasswordSetter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPasswordSetter.Designer.cs">
+      <DependentUpon>FormPasswordSetter.cs</DependentUpon>
+    </Compile>
     <Compile Include="MVC-View\IDataEntryView.cs" />
     <Compile Include="PittsburghSixMmValidationMode.cs" />
     <Compile Include="Program.cs" />
@@ -136,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MVC-View\DataEntryView.resx">
       <DependentUpon>DataEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPasswordSetter.resx">
+      <DependentUpon>FormPasswordSetter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

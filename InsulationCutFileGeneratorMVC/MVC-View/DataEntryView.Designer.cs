@@ -73,6 +73,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSixMmSize)).BeginInit();
@@ -137,6 +138,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Entry ID";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -148,6 +150,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Job Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -211,6 +214,7 @@
             this.textBoxEntryId.ReadOnly = true;
             this.textBoxEntryId.Size = new System.Drawing.Size(100, 20);
             this.textBoxEntryId.TabIndex = 10;
+            this.textBoxEntryId.Visible = false;
             // 
             // label8
             // 
@@ -251,6 +255,7 @@
             this.textBoxJobName.Name = "textBoxJobName";
             this.textBoxJobName.Size = new System.Drawing.Size(100, 20);
             this.textBoxJobName.TabIndex = 11;
+            this.textBoxJobName.Visible = false;
             this.textBoxJobName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBoxDuctId
@@ -676,6 +681,8 @@
             this.MinimumSize = new System.Drawing.Size(578, 395);
             this.Name = "DataEntryView";
             this.Size = new System.Drawing.Size(578, 395);
+            this.Load += new System.EventHandler(this.DataEntryView_Load);
+            this.VisibleChanged += new System.EventHandler(this.DataEntryView_VisibleChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPittsburghSize)).EndInit();
@@ -744,5 +751,6 @@
         private System.Windows.Forms.RichTextBox textBox4;
         private System.Windows.Forms.Button buttonPreview;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

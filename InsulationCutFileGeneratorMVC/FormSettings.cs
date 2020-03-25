@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsulationCutFileGeneratorMVC.MVC_View;
+using System;
 using System.Windows.Forms;
 
 namespace InsulationCutFileGeneratorMVC
@@ -165,6 +166,12 @@ namespace InsulationCutFileGeneratorMVC
                 else
                     this.Enabled = false;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FormPasswordSetter passwordReader = new FormPasswordSetter(Settings.Instance.PasswordHash);
+            passwordReader.ShowDialog();
         }
     }
 }
